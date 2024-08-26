@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation</title>
+    <link rel="stylesheet" th:href="@{/css/common/navigation.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');</style>
+</head>
+<body>
+<div th:fragment="navigation" class="navigation">
+    <div class="navi-project-logo">
+        <a href="#">
+            <div class="navi-project-logo-icon">
+                <div class="navi-logo-bg" th:style="'background-color: ' + ${project.pcolor}"></div>
+                <div class="navi-logo-img" th:style="'background-image: url(' + @{/image/common/wall-clock.png} + ')'"></div>
+            </div>
+        </a>
+        <span class="navi-project-name" th:text="${project.pname}"></span>
+        <a href="#">
+            <div class="navi-project-arrow">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </a>
+        <a href="#">
+            <div class="navi-project-favorite">
+                <i class="fa-regular fa-star"></i>
+            </div>
+        </a>
+    </div>
+    <div class="navi-menu-container">
+        <div class="navi-menu-item" data-target="/outline">
+            <div class="navi-menu-icon">
+                <i class="fa-regular fa-clipboard"></i>
+            </div>
+            <span class="navi-menu-text">개요</span>
+        </div>
+        <div class="navi-menu-item" data-target="/list">
+            <div class="navi-menu-icon">
+                <i class="fa-solid fa-list"></i>
+            </div>
+            <span class="navi-menu-text">목록</span>
+        </div>
+        <div class="navi-menu-item" data-target="/kanban">
+            <div class="navi-menu-icon">
+                <i class="fa-solid fa-chart-simple" style="transform: rotate(180deg);"></i>
+            </div>
+            <span class="navi-menu-text">보드</span>
+        </div>
+        <div class="navi-menu-item" data-target="/dash">
+            <div class="navi-menu-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <span class="navi-menu-text">대시보드</span>
+        </div>
+        <div class="navi-menu-item" data-target="/calendar">
+            <div class="navi-menu-icon">
+                <i class="fa-regular fa-calendar"></i>
+            </div>
+            <span class="navi-menu-text">캘린더</span>
+        </div>
+        <div class="navi-menu-item" data-target="/chat">
+            <div class="navi-menu-icon">
+                <i class="fa-regular fa-message"></i>
+            </div>
+            <span class="navi-menu-text">메신저</span>
+        </div>
+<!--        <div class="navi-menu-item" data-target="/attachment">-->
+<!--            <div class="navi-menu-icon">-->
+<!--                <i class="fa-solid fa-paperclip" style="transform: rotate(135deg);"></i>-->
+<!--            </div>-->
+<!--            <span class="navi-menu-text">파일</span>-->
+<!--        </div>-->
+    </div>
+    <!-- pmember의 프로필 사진을 가져오게 하기. 5명 이상일 경우 랜덤한 5명의 프로필만 보이기.(멤버 리스트는 모두 받아와야 함) -->
+    <div class="navi-member-container">
+        <div class="navi-member-list">
+            <a href="#">
+                <div class="navi-member-profile" th:style="'background-image: url(' + @{/image/common/profile1.png} + ')'"></div>
+            </a>
+            <a href="#">
+                <div class="navi-member-profile" th:style="'background-image: url(' + @{/image/common/profile2.png} + ')'"></div>
+            </a>
+            <a href="#">
+                <div class="navi-member-profile" th:style="'background-image: url(' + @{/image/common/profile3.png} + ')'"></div>
+            </a>
+            <a href="#">
+                <div class="navi-member-profile" th:style="'background-image: url(' + @{/image/common/profile4.png} + ')'"></div>
+            </a>
+            <a href="#">
+                <div class="navi-member-profile" th:style="'background-image: url(' + @{/image/common/stark.jpeg} + ')'"></div>
+            </a>
+            <div th:each="member : ${members}">
+                <a href="#">
+                    <div class="navi-member-profile" th:style="'background-image: url(' + @{/image/common/stark.jpeg} + ')'"></div>
+                </a>
+            </div>
+        </div>
+        <a href="#">
+            <div class="navi-share-button">
+                <div class="navi-button-bg"></div>
+                <div class="navi-button-icon">
+                    <i class="fa-regular fa-circle-user"></i>
+                </div>
+                <span class="navi-button-text">공유</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

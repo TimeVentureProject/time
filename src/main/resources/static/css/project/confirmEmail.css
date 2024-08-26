@@ -1,0 +1,133 @@
+.logo {
+  margin: 0 276px 545px 0;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.wall-clock-8336431 {
+  background: url('../../image/common/logo.png') 50% / cover no-repeat;
+  margin-right: 14px;
+  width: 56px;
+  height: 56px;
+}
+.time-venture {
+  margin: 11px 0;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 28px;
+  color: #000000;
+}
+.message-box {
+  border-radius: 5px;
+  background: #F9F8F8;
+  position: relative;
+  margin-bottom: 17px;
+  display: flex;
+  padding: 17px 14.2px 17px 9.2px;
+  box-sizing: border-box;
+  margin-right : 190px;
+  margin-left : 290px;
+}
+.container {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.333;
+  color: #1580EB;
+}
+.container-sub2 {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.333;
+  color: #1580EB;
+}
+.container {
+  position: absolute;
+  right: 124px;
+  bottom: 0px;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  color: #969696;
+}
+.container-1 {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  padding: 26px 0 0 0px;
+  width: 1440px;
+  box-sizing: border-box;
+}
+.container-2 {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 28px;
+  color: #000000;
+  margin-right : 200px;
+  margin-left : 410px;
+}
+.ccasdfnaver-com-asana-5 {
+  text-align: center;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 15px;
+  color: #969696;
+}
+.container-3 {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  text-decoration-line: underline;
+  line-height: 1.333;
+  color: #1580EB;
+}
+.container-3-sub2 {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  text-decoration-line: underline;
+  line-height: 1.333;
+  color: #1580EB;
+}
+.container-3 {
+  margin-left: 28px;
+  align-self: center;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  color: #969696;
+}
+.arrow-6 {
+  background: #6D6E6F;
+  margin: 17px 26px 15px 0;
+  width: 25px;
+  height: 2px;
+}
+.translate-message {
+  position: relative;
+  margin-top: 285px;
+  display: flex;
+  box-sizing: border-box;
+}
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  box-sizing: border-box;
+  margin-right : 50px;
+}
+.container-1 {
+  margin: 0px 21.7px 26px 25px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+}

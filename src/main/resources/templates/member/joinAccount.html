@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeVenture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/image/common/logo.png">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/member/loginAccount.css}">
+</head>
+<body>
+<div th:replace="~{common/header :: header}"></div>
+<div class="loginAccount_container">
+    <div class="loginAccount_signup-form">
+        <h2>새로운 계정 생성</h2>
+        <p>시작하려면 가입하세요</p>
+        <form action="/joinGoogleAccountSetup" method="get" class="loginAccount_email-input">
+            <input class="loginAccount_email_inputForm" type="email" name="email" readonly th:value="${email}"/>
+            <input class="loginAccount_email_inputForm" type="hidden" name="name" readonly th:value="${name}"/>
+            <button class="loginAccount_signup-button" type="submit">Google 계정으로 가입하기</button>
+        </form>
+        <p class="loginAccount_terms">가입할 시 TimeVenture 서비스 약관에 동의하고 개인정보<br/> 처리방침이 적용됨을 확인하게 됩니다.</p>
+    </div>
+</div>
+</body>
+</html>

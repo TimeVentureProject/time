@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+.outline-frame-main {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0 0 0;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+
+}
+.outline-frame-main .outline-group-project-explain {
+  border-radius: 15px;
+  margin-bottom: 88px;
+  display: flex;
+  flex-direction: column;
+  width: 765.99px;
+  box-sizing: border-box;
+}
+.outline-frame-main .outline-text-project-explain {
+  margin-bottom: 26px;
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 45px;
+  color: #000000;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-text-project-main {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 20px;
+  color: #000000;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-group-part {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  box-sizing: border-box;
+}
+span {
+font-family: 'Gowun Dodum', sans-serif;
+}
+
+.outline-frame-main .outline-container-members {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: 1px solid #F1F0EF;
+  background: #FFFFFF;
+  position: relative;
+  margin-left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 40px 43px 40px;
+  width: 766px;
+  box-sizing: border-box;
+}
+.outline-frame-main .outline-group-detail-2 {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  width: 145px;
+  height: 68px;
+}
+.outline-frame-main .outline-text-name-2 {
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000;
+  padding-top: 10px;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-group-add-button-2 {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  box-sizing: border-box;
+  flex:1;
+  align-items:center;
+}
+.outline-frame-main .outline-text-add-2 {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  color: #565557;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-icon-plus-2 {
+  margin-right:4px;
+  background: 50% / cover no-repeat;
+  width: 10px;
+  height: 10px;
+}
+.outline-frame-main .outline-image-profile-2 {
+  border-radius: 20px;
+  background: 50% / cover no-repeat;
+    margin-right:10px;
+  width: 100%;
+  height: 100%;
+}
+.outline-frame-main .outline-group-detail-5 {
+  margin-top: 1.1px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.outline-frame-main .outline-text-name-5 {
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000;
+  padding-bottom: 8px;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-group-add-button-5 {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  box-sizing: border-box;
+  flex:1;
+  align-items:center;
+}
+.outline-frame-main .outline-text-add-5 {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  color: #565557;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-icon-plus-5 {
+  margin-right:4px;
+  width: 10px;
+  height: 10px;
+  background: 50% / cover no-repeat;
+}
+.outline-frame-main .outline-image-profile-5 {
+  border-radius: 20px;
+  background: 50% / cover no-repeat;
+  margin-right:6px;
+  width: 40px;
+  height: 40px;
+}
+.outline-frame-main .outline-group-detail-3 {
+  margin-top: 1.1px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.outline-frame-main .outline-image-profile-3 {
+  border-radius: 20px;
+  background: 50% / cover no-repeat;
+  margin-right: 6px;
+  width: 40px;
+  height: 40px;
+}
+.outline-frame-main .outline-text-name-3 {
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000;
+  padding-bottom: 8px;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-group-add-button-3 {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  box-sizing: border-box;
+  flex:1;
+  align-items:center;
+}
+.outline-frame-main .outline-text-add-3 {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  color: #565557;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-icon-plus-3 {
+  margin-right:4px;
+  width: 10px;
+  height: 10px;
+  background: 50% / cover no-repeat;
+}
+.outline-frame-main .outline-group-detail-4 {
+  margin-top: 1.1px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.outline-frame-main .outline-text-name-5 {
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000;
+  padding-bottom: 8px;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-group-add-button-4 {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  box-sizing: border-box;
+  flex:1;
+  align-items:center;
+}
+.outline-frame-main .outline-text-add-4 {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  color: #565557;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-icon-plus-4 {
+  margin-right:4px;
+  width: 10px;
+  height: 10px;
+  background: 50% / cover no-repeat;
+}
+.outline-frame-main .outline-image-profile-4 {
+  border-radius: 20px;
+  background: 50% / cover no-repeat;
+  margin-right: 6px;
+  width: 40px;
+  height: 40px;
+}
+.outline-frame-main .outline-group-detail-1 {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  width: 145px;
+  height: 68px;
+}
+.outline-frame-main .outline-text-name-1 {
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 17px;
+  color: #000000;
+  font-family: 'Gowun Dodum', sans-serif;
+  padding-top : 10px;
+}
+.outline-frame-main .outline-text-master-1 {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 15px;
+  color: #565557;
+  font-family: 'Gowun Dodum', sans-serif;
+  padding-top : 10px;
+}
+.outline-frame-main .outline-image-profile-1 {
+  border-radius: 20px;
+  background: 50% / cover no-repeat;
+  margin-right: 10px;
+}
+.outline-frame-main .outline-group-add-button {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+}
+button:hover {
+    background-color : #e7e7e7;
+}
+
+.outline-frame-main .outline-image-plus {
+  border-radius: 20px;
+  background: 50% / cover no-repeat;
+  margin-right: 10.1px;
+  width: 40px;
+  height: 40px;
+}
+.outline-frame-main .outline-text-member-add {
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 30px;
+  color: #000000;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .outline-text-part {
+  margin-bottom: 30px;
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 45px;
+  color: #000000;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+.outline-frame-main .container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+}
+.outline-frame-main .container-1 {
+  margin-bottom: 5.1px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.outline-frame-main .container-2 {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.outline-frame-main .container-3 {
+  margin-bottom: 5.1px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.outline-frame-main .container-4 {
+  margin-bottom: 5.1px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.outline-frame-main .container-5 {
+  margin: 0 0 21.9px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 462.6px;
+  box-sizing: border-box;
+}
+.outline-frame-main .container-6 {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: 1px solid #F1F0EF;
+  background: #FFFFFF;
+  position: relative;
+  margin-left: 0px;
+  padding: 24px 36px 134px 36px;
+  width: 766px;
+  box-sizing: border-box;
+}
+.outline-frame-main .container-7 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+
+
+
+#member-list1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.outline-group-detail-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px; /* 필요한 경우 너비를 조정할 수 있습니다 */
+    margin: 10px;
+}
+
+.outline-image-profile-2 {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outline-text-name-2,
+.outline-group-add-button-2 {
+    margin-top: 5px;
+}
+
+.member-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width:100%
+}
+
+.outline-group-detail-2 {
+    width: calc(25% - 20px); /* 각 열의 너비 설정 (4열 중 1열) */
+    margin-right: 20px; /* 열 사이의 간격 설정 */
+    margin-bottom: 20px; /* 행 사이의 간격 설정 */
+    /* 나머지 스타일 설정 */
+}
+
+.outline-group-detail-2:nth-child(4n) {
+    margin-right: 0;
+}
+

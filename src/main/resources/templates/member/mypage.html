@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+    <link rel="stylesheet" th:href="@{/css/common/side.css}">
+    <link rel="stylesheet" th:href="@{/css/common/top.css}">
+    <link rel="stylesheet" th:href="@{/css/member/myPage.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+        .main-content {
+            margin-top: 60px;
+            height: calc(100vh - 60px);
+        }
+    </style>
+</head>
+<body>
+<div th:replace="common/top :: top"></div>
+<div th:replace="common/side :: side"></div>
+<main class="main-content">
+    <div id="app">
+        <div class="mypage-profilebox-container">
+            <div class="mypage-profilebox">
+                <img class="mypage-profilebox-img" :src="member.img" alt="A">
+                <div class="mypage-profilebox-info">
+                    <h2>{{ member.name }}</h2>
+                    <button type="button">프로필 편집</button>
+                </div>
+            </div>
+        </div>
+        <div class="mypage-myworkbox-container">
+            <div class="mypage-myworkbox-header">
+                <h2>내 작업</h2>
+                <button type="button">모든 작업 보기</button>
+            </div>
+            <div class="mypage-myworkbox-content">
+                <div class="mypage-myworkbox-item">
+                    <span class="mypage-myworkbox-check" @click="markTaskAsDone(task)"><i class="fas fa-check-circle"></i></span>
+                    <span class="mypage-myworkbox-name"></span>
+                    <span class="mypage-myworkbox-project">
+                        <i class="fas fa-circle project-color-icon" :style="'color:' + task.projectColor"></i>
+                        <span class="mypage-myworkbox-pName"></span>
+                    </span>
+                    <span class="mypage-myworkbox-date"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script defer src="/js/common/mypage.js"></script>
+</body>
+</html>

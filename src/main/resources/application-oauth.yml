@@ -1,0 +1,12 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          # 구글 로그인 추가
+          google:
+            client-id: 438304657763-rup12m2plt80r43roa9n22m6tdpctpl7.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile

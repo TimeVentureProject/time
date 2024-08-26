@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modal Example</title>
+    <style>
+        /* Existing styles */
+        .member-modal-member-list {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        .member-modal-member-list .invite-group {
+            border-radius: 7px;
+            margin: 0 0 25px 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .member-modal-member-list .invite-email-text {
+            margin-bottom: 9.5px;
+            display: inline-block;
+            align-self: flex-start;
+            overflow-wrap: break-word;
+            font-family: 'Inter';
+            font-weight: 300;
+            font-size: 16px;
+            color: #000000;
+        }
+        .member-modal-member-list .time-venture {
+            margin: 0 14px 23px 14px;
+            align-self: flex-start;
+            overflow-wrap: break-word;
+            font-family: 'Inter';
+            font-weight: 300;
+            font-size: 20px;
+            color: #000000;
+        }
+        .time-venture {
+            font-family: 'Inter';
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 1.333;
+        }
+        .time-venture-sub5 {
+            font-family: 'Inter';
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1.333;
+        }
+        .member-modal-member-list .invite-member-text {
+            overflow-wrap: break-word;
+            font-family: 'Inter';
+            font-weight: 300;
+            font-size: 14px;
+            color: #565557;
+        }
+        .member-modal-member-list .invite-member {
+            border-radius: 7px;
+            border: 0.5px solid #565557;
+            position: relative;
+            margin-right: 21px;
+            padding: 6.5px 0;
+            flex-grow: 1;
+            flex-basis: 225px;
+            box-sizing: border-box;
+        }
+        .member-modal-member-list .invite-button {
+            border-radius: 7px;
+            background: #426DC6;
+            position: relative;
+            display: flex;
+            padding: 6.5px 12.6px;
+            flex-grow: 1;
+            flex-basis: 51px;
+            box-sizing: border-box;
+        }
+        .member-modal-member-list .invite-button-text {
+            overflow-wrap: break-word;
+            font-family: 'Inter';
+            font-weight: 300;
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+        .member-modal-member-list .line-5 {
+            background: #565557;
+            margin-bottom: 19.5px;
+            width: 338px;
+            height: 0.5px;
+        }
+        .member-modal-member-list .container {
+            margin: 0 32px 10px 32px;
+            display: inline-block;
+            align-self: flex-start;
+            overflow-wrap: break-word;
+            font-family: 'Inter';
+            font-weight: 300;
+            font-size: 16px;
+            color: #000000;
+        }
+        .member-modal-member-list .container1 {
+            margin: 0 32px 10px 32px;
+            display: inline-block;
+            align-self: center;
+            overflow-wrap: break-word;
+            font-family: 'Inter';
+            font-weight: 300;
+            font-size: 16px;
+            color: #000000;
+        }
+        .member-modal-member-list .container-1 {
+            margin: 11.5px 35.4px 10.5px 0;
+            display: inline-block;
+            overflow-wrap: break-word;
+            font-family: 'Inter';
+            font-weight: 400;
+            font-size: 15px;
+            color: #000000;
+        }
+        .member-modal-member-list .minsun-777-gmail-com {
+            margin: 14.5px 0 13.5px 0;
+            display: inline-block;
+            overflow-wrap: break-word;
+            font-family: 'Inter';
+            font-weight: 400;
+            font-size: 10px;
+            color: #565557;
+        }
+        .member-modal-member-list .profile-img {
+            border-radius: 20px;
+            background: url('../assets/images/profile_3.png') 50% / cover no-repeat;
+            margin-right: 17px;
+            width: 40px;
+            height: 40px;
+        }
+        .member-modal-member-list .member-group-member-1 {
+            margin-right: 19.5px;
+            display: flex;
+            flex-direction: row;
+            align-self: center;
+            width: fit-content;
+            box-sizing: border-box;
+        }
+        .member-modal-member-list .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .member-modal-member-list .container1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 340px;
+            height: auto;
+        }
+
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Trigger/Open The Modal -->
+<button id="openModalBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="member-modal-member-list" id="memberList">
+            <p class="time-venture">
+                <span class="time-venture-sub5">멤버 리스트</span><span></span>
+            </p>
+            <div class="invite-group">
+                <div class="invite-email-text">
+                    이메일로 초대
+                </div>
+                <div class="container1">
+                    <div class="invite-member">
+                    <span class="invite-member-text">
+                        이름 또는 이메일로 멤버 추가...
+                    </span>
+                    </div>
+                    <div class="invite-button">
+                    <span class="invite-button-text">
+                        초대
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="line-5">
+            </div>
+            <div class="container">
+                멤버(5명)
+            </div>
+            <div id="members">
+                <!-- Members will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("openModalBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // Function to fetch member data from the server
+    function fetchMemberData() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:3000/api/members', true);
+        xhr.onload = function () {
+            if (this.status == 200) {
+                var members = JSON.parse(this.responseText);
+                var memberList = document.getElementById('members');
+                memberList.innerHTML = '';
+
+                members.forEach(function(member) {
+                    var memberDiv = document.createElement('div');
+                    memberDiv.classList.add('member-group-member-1');
+
+                    var profileImg = document.createElement('div');
+                    profileImg.classList.add('profile-img');
+                    profileImg.style.backgroundImage = `url('${member.profileImage}')`;
+
+                    var memberName = document.createElement('div');
+                    memberName.classList.add('container-1');
+                    memberName.textContent = member.name;
+
+                    var memberEmail = document.createElement('div');
+                    memberEmail.classList.add('minsun-777-gmail-com');
+                    memberEmail.textContent = member.email;
+
+                    memberDiv.appendChild(profileImg);
+                    memberDiv.appendChild(memberName);
+                    memberDiv.appendChild(memberEmail);
+
+                    memberList.appendChild(memberDiv);
+                });
+            }
+        };
+        xhr.send();
+    }
+
+    // When the user clicks the button, open the modal and fetch data
+    btn.onclick = function() {
+        modal.style.display = "block";
+        fetchMemberData();
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // server.js
+const express = require('express');
+const app = express();
+const port = 3000;
+
+const members = [
+    {
+        name: "민선",
+        email: "77minsun777@gmail.com",
+        profileImage: "path/to/profile_3.png"
+    },
+    // Add more members as needed
+];
+
+app.get('/api/members', (req, res) => {
+    res.json(members);
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
+</script>
+
+</body>
+</html>

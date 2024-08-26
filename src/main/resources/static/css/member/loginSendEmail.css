@@ -1,0 +1,73 @@
+.project_invite-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    padding-top: 120px; /* 헤더와 내용이 겹치지 않도록 패딩 추가 */
+    box-sizing: border-box;
+    background-color: #F9F8F8;
+    text-align: center;
+}
+
+.project_invite-form {
+    background: #F9F8F8;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 400px;
+    width: 100%;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress {
+    width: 99%; /* 프로그레스 바의 진행률을 조절 */
+    height: 8px;
+    background-color: #4285f4;
+}
+
+.project_invite-form h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.project_invite-form p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.project_invite-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.project_invite-continue-button {
+    background: #4285f4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.3s;
+}
+
+.project_invite-continue-button:hover {
+    background: #357ae8;
+}

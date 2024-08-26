@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TimeVenture</title>
+    <link rel="stylesheet" href="css/project/projectList.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+          integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div class="projectList_container" data-app="projectList">
+    <div class="projectList_task_header">
+        <button @click="openModal('addTaskModal')">작업추가</button>
+        <button @click="openModal('filterModal')">필터링</button>
+        <button @click="openModal('sortModal')">정렬</button>
+    </div>
+
+    <!-- 정렬 모달 -->
+    <div id="sortModal" class="modal">
+        <div class="modal-content">
+            <span class="close" @click="closeModal('sortModal')">&times;</span>
+            <h2>정렬</h2>
+            <button @click="sortTasks('dueDate')">마감일</button>
+            <button @click="sortTasks('priority')">우선순위</button>
+        </div>
+    </div>
+
+    <!-- 필터링 모달 -->
+    <div id="filterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" @click="closeModal('filterModal')">&times;</span>
+            <h2>필터링</h2>
+            <button @click="filterTasks('incomplete')">미완료 작업</button>
+            <button @click="filterTasks('complete')">완료된 작업</button>
+            <button @click="filterTasks('')">전체 작업</button>
+        </div>
+    </div>
+
+    <!-- 작업 추가 모달 -->
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close" @click="closeModal('addTaskModal')">&times;</span>
+            <h2>작업 추가</h2>
+            <form @submit.prevent="addTask">
+                <input type="text" v-model="newTask.title" placeholder="작업 제목" required>
+                <input type="date" v-model="newTask.dueDate" required>
+                <select v-model="newTask.priority" required>
+                    <option value="">우선순위 선택</option>
+                    <option value="HIGH">높음</option>
+                    <option value="MEDIUM">중간</option>
+                    <option value="LOW">낮음</option>
+                </select>
+                <button type="submit">추가</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 상세페이지 -->
+    <div id="detailPane" class="detail-pane">
+        <div class="detail-content" v-if="selectedTask">
+            <span class="close" @click="closeDetailPane">&times;</span>
+            <h2 contenteditable @blur="saveChanges('title', $event)" @keydown.enter="saveChanges('title', $event)">
+                {{ selectedTask.title }}
+            </h2>
+            <div class="detail-field">
+                <label for="assignee">담당자</label>
+                <select id="assignee" @change="changeAssignee($event.target.value)">
+                    <option v-for="pmember in projectMembers" :value="pmember.memberId" :selected="pmember.memberId === selectedTask.mid">
+                        {{ pmember.memberName }}
+                    </option>
+                </select>
+            </div>
+            <div class="detail-field">
+                <label for="dueDate">마감일</label>
+                <input type="date" id="dueDate" :value="new Date(selectedTask.dueDate).toISOString().split('T')[0]" @change="saveChanges('dueDate', $event)">
+            </div>
+            <div class="detail-field">
+                <label for="priority">우선순위</label>
+                <select id="priority" @change="saveChanges('priority', $event)">
+                    <option value="HIGH" :selected="selectedTask.priority === 'HIGH'">높음</option>
+                    <option value="MEDIUM" :selected="selectedTask.priority === 'MEDIUM'">중간</option>
+                    <option value="LOW" :selected="selectedTask.priority === 'LOW'">낮음</option>
+                </select>
+            </div>
+            <div class="detail-field">
+                <label for="status">상태</label>
+                <select id="status" @change="saveChanges('taskStatus', $event)">
+                    <option value="TODO" :selected="selectedTask.taskStatus === 'TODO'">TO DO</option>
+                    <option value="DOING" :selected="selectedTask.taskStatus === 'DOING'">Doing</option>
+                    <option value="DONE" :selected="selectedTask.taskStatus === 'DONE'">Done</option>
+                    <option value="HOLD" :selected="selectedTask.taskStatus === 'HOLD'">Hold</option>
+                </select>
+            </div>
+            <div class="detail-field" v-if="selectedTask.content">
+                <label for="content">내용</label>
+                <textarea style="resize:none;" id="content" contenteditable @blur="saveChanges('content', $event)" @keydown.enter="saveChanges('content', $event)">
+                    {{ selectedTask.content }}
+                </textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="projectList_menu">
+        <span class="projectList_menu_name">작업이름</span>
+        <span class="projectList_menu_manager">담당자</span>
+        <span class="projectList_menu_deadline">마감일</span>
+        <span class="projectList_menu_priority">우선순위</span>
+    </div>
+
+    <div class="projectList_task_section">
+        <h4 @click="toggleSection('todo_section')">
+            <span class="toggle-icon closed" :class="{'open': isSectionOpen('todo_section')}"></span>
+            TO DO
+        </h4>
+        <div id="todo_section" class="projectList_task_items" v-show="isSectionOpen('todo_section')"></div>
+    </div>
+
+    <div class="projectList_task_section">
+        <h4 @click="toggleSection('doing_section')">
+            <span class="toggle-icon closed" :class="{'open': isSectionOpen('doing_section')}"></span>
+            Doing
+        </h4>
+        <div id="doing_section" class="projectList_task_items" v-show="isSectionOpen('doing_section')"></div>
+    </div>
+
+    <div class="projectList_task_section">
+        <h4 @click="toggleSection('done_section')">
+            <span class="toggle-icon closed" :class="{'open': isSectionOpen('done_section')}"></span>
+            Done
+        </h4>
+        <div id="done_section" class="projectList_task_items" v-show="isSectionOpen('done_section')"></div>
+    </div>
+
+    <div class="projectList_task_section">
+        <h4 @click="toggleSection('hold_section')">
+            <span class="toggle-icon closed" :class="{'open': isSectionOpen('hold_section')}"></span>
+            Hold
+        </h4>
+        <div id="hold_section" class="projectList_task_items" v-show="isSectionOpen('hold_section')"></div>
+    </div>
+</div>
+<script th:src="@{/js/project/projectList.js}"></script>
+</body>
+</html>

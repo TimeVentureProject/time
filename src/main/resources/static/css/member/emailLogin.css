@@ -1,0 +1,97 @@
+.emailLogin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-top: 120px; /* 헤더와 내용이 겹치지 않도록 패딩 추가 */
+  box-sizing: border-box;
+  background-color: #F9F8F8;
+  text-align: center;
+}
+
+.login-content {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+}
+
+.login-content h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.login-content p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.login-content .email-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.login-content .email-input img {
+  margin-right: 10px;
+}
+
+.login-content input[type="email"],
+.login-content input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.login-content input[type="password"]::-ms-reveal,
+.login-content input[type="password"]::-ms-clear {
+  display: none;
+}
+
+.login-content .password-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.login-content .password-input img {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.login-content .forgot-password {
+  display: block;
+  text-align: right;
+  margin-bottom: 20px;
+  color: #4285f4;
+  text-decoration: none;
+}
+
+.login-content .forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-content .continue-button {
+  background: #4285f4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background 0.3s;
+}
+
+.login-content .continue-button:hover {
+  background: #357ae8;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+    <link rel="stylesheet" th:href="@{/css/common/navigation.css}">
+    <style>
+        .navi-content-container {
+            padding: 5px;
+        }
+        .navi-content-wrapper {
+            margin-top: 203px;
+            width: 100%;
+            overflow-y: auto;
+            transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+        }
+        .side.show + .navi-content-wrapper {
+            margin-left: 0;
+            width: 100%;
+        }
+        .navigation {
+            margin-left: 0px;
+            width: 100%;
+            transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+        }
+        .side.show + .navigation {
+            margin-left: 0;
+            width: 100%
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{/common/navigation :: navigation}"></div>
+<div class="navi-content-wrapper">
+    <div class="navi-content-container"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeVenture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/image/common/logo.png">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/member/loginSendEmail.css}">
+</head>
+<body>
+<form action="/joinFinish" method="post">
+    <input type="hidden" name="managerEmail" th:value="${email}"/>
+    <input type="hidden" name="projectId" th:value="${projectId}"/>
+    <input type="hidden" name="projectName" th:value="${projectName}"/>
+<div th:replace="~{common/header :: header}"></div>
+<div class="project_invite-container">
+    <div class="project_invite-form">
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <h2>팀원을 초대하여 TimeVenture 함께 사용해 보세요.</h2>
+        <p>신뢰할 수 있는 팀원을 초대하여 TimeVenture를 함께 사용하는 방법을 배워보세요.</p>
+        <input class="project_invite-input" type="email" placeholder="팀원 이메일" name="email1"/>
+        <input class="project_invite-input" type="email" placeholder="팀원 이메일" name="email2"/>
+        <input class="project_invite-input" type="email" placeholder="팀원 이메일" name="email3"/>
+        <input class="project_invite-input" type="email" placeholder="팀원 이메일" name="email4"/>
+        <input type="submit" class="project_invite-continue-button" value="계속"/>
+    </div>
+</div>
+</form>
+</body>
+</html>

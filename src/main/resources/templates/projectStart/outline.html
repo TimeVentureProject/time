@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/common/top.css}">
+    <link rel="stylesheet" th:href="@{/css/common/side.css}">
+    <link rel="stylesheet" th:href="@{/css/common/navigation.css}">
+    <link rel="stylesheet" th:href="@{/css/project/outline.css}">
+    <link rel="stylesheet" th:href="@{/css/project/outlineModal.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+          integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');</style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="memberInfo" th:if="${session.member}">
+    <span id="memberName" th:text="${session.member.name}" style="display:none"></span>
+    <span id="memberEmail" th:text="${session.member.email}" style="display:none"></span>
+</div>
+<div class="outline-frame-main">
+    <div class="outline-group-project-explain">
+        <div class="outline-text-project-explain">
+            프로젝트 설명
+        </div>
+        <div class="container-6">
+            <span class="outline-text-project-main">
+                시간과 업무를 효율적으로 관리하기 위한 협업툴 TimeVenture 제작 😊
+            </span>
+        </div>
+    </div>
+<div class="outline-group-part">
+    <div class="outline-text-part">
+        프로젝트 역할
+    </div>
+        <!-- 프로젝트 역할 1번째 줄 컨테이너-->
+    <div class="outline-container-members">
+            <!-- 멤버추가와 팀장 컨테이너 -->
+        <div class="container-5">
+                <!-- 멤버추가 컨테이너 -->
+            <button id="openModalBtn">
+                <div class="outline-group-add-button">
+                    <div class="outline-image-plus" th:style="'background-image: url(' + @{/image/projectStart/icon-addPlus.png} + ')'"></div>
+                        <span class="outline-text-member-add">
+                            멤버 추가
+                        </span>
+                </div>
+            </button>
+                <!-- 팀장 프로필 컨테이너 -->
+            <div class="outline-group-detail-1">
+                    <!-- 팀장 프로필 이미지 -->
+                <img class="outline-image-profile-1"  th:src="@{'/upload/' + ${session.member.img}}"/>
+                <div class="container-2">
+                    <span class="outline-text-name-1">
+                        민선
+                    </span>
+                    <span class="outline-text-master-1">
+                        프로젝트 소유자
+                    </span>
+                </div>
+            </div>
+        </div>
+    <div class="container-7" id="member-list1">
+    </div>
+    </div>
+</div>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- The Modal -->
+<div id="app">
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="member-modal-member-list" id="memberList">
+            <p class="time-venture">
+                <span class="time-venture-sub5">멤버 리스트</span><span></span>
+            </p>
+            <div class="invite-group">
+                <div class="invite-email-text">
+                    이메일로 초대
+                </div>
+                <div class="container1">
+                    <input type="email" id="invite-member-input" class="invite-member-text" placeholder="이름 또는 이메일로 멤버 추가..."/>
+                    <button class="invite-button" id="invite-button-text" @click="sendInvitation"> 초대
+                    </button>
+                </div>
+            </div>
+            <div class="line-5">
+            </div>
+            <div class="container">
+                멤버(<span id="member-count">0</span>명)
+            </div>
+            <div class="member-group-member-1" id="member-list">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

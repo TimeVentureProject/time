@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+.gowun-dodum-regular {
+  font-family: "Gowun Dodum", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.common-side {
+    position: absolute;
+    width: 200px;
+    background: #2E2E30;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.side {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    height: calc(100vh - 60px);
+    background-color: #e1e1e1;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.side.show {
+    transform: translateX(0);
+}
+
+.side-upper {
+    height: 100px;
+    left: 0;
+    top: 0;
+    box-shadow: 0 0.25px #F5F4F3;
+}
+
+.side-lower {
+    height: calc(100% - 100px);
+    left: 0;
+    top: 100px;
+}
+
+.side-menu {
+    position: absolute;
+    width: 165px;
+    left: 24px;
+    top: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.side-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    color: #F5F4F3;
+}
+
+.menu-text {
+    font-size: 16px;
+    color: #F5F4F3;
+}
+
+.side-section {
+    position: absolute;
+    left: 23px;
+}
+
+.side-section:first-child {
+    top: 22px;
+}
+
+.side-section:last-child {
+    top: 22px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-icon {
+    width: 20px;
+    height: 20px;
+    color: #E87E7E;
+}
+
+.section-text {
+    font-size: 16px;
+    color: #F5F4F3;
+}
+
+.section-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+    margin-top: 15px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.section-content .section-icon {
+    color: #7A7EEA;
+}
+
+.section-content .section-text {
+    font-size: 14px;
+}

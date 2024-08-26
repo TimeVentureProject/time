@@ -1,0 +1,169 @@
+/* Board */
+.kanban_board {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* Column */
+.kanban_column {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    padding: 10px;
+}
+
+.kanban_column h3 {
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    background-color: #f0f2f5;
+    color: #333;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* Task List */
+.kanban_task_list {
+    min-height: 200px;
+    padding: 10px;
+    background-color: #f0f2f5;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Task */
+.kanban_task {
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: move;
+}
+
+.kanban_task:last-child {
+    margin-bottom: 0;
+}
+
+/* Task Details */
+.task-details {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background-color: #f0f2f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.task-details-content {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Editable Fields */
+.editable {
+    cursor: pointer;
+    border-bottom: 1px dashed #999;
+}
+
+.editable-input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Sort Container */
+.sort-container {
+    margin-top: 20px;
+    text-align: right;
+}
+/* Task Details */
+.task-details {
+    position: fixed;
+    top: 213px;
+    right: 0; /* Initially hidden outside of the viewport */
+    width: 360px;
+    height: 70%;
+    background-color: #f0f2f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 9999;
+    transition: right 0.3s ease; /* Add transition for smooth sliding */
+    overflow-y: auto;
+}
+
+.task-details-content {
+    /* 내용 박스 스타일 */
+    background-color: #fff; /* 배경색 (흰색) */
+    padding: 20px;
+    border-radius: 5px; /* 모서리 둥글게 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+}
+
+.close {
+    /* 닫기 버튼 스타일 */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.editable {
+    /* 수정 가능한 항목 스타일 */
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.editable-input {
+    /* 편집 모드 input/textarea 스타일 */
+    display: block;
+    width: 93%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.editable-input:focus {
+    /* 편집 모드 input/textarea 포커스 시 스타일 */
+    outline: none;
+    border-color: #999;
+}
+
+.task-details-content select {
+    /* select 박스 스타일 */
+    width: 99%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.task-details-content button {
+    /* 저장 버튼 스타일 */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}

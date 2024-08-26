@@ -1,0 +1,28 @@
+<!-- Thymeleaf Side Fragment -->
+<div th:fragment="side" class="side common-side" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="side-upper common-side">
+        <div class="side-menu">
+            <div class="side-menu-item" data-target="/home" id="homeButton">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+                <span class="menu-text">홈</span>
+            </div>
+        </div>
+    </div>
+    <div class="side-lower common-side">
+        <div class="side-section">
+            <div class="section-title">
+                <span class="section-text">프로젝트</span>
+            </div>
+            <div id="project-list">
+                <div v-for="project in projects" :key="project.pid" class="section-content" @click="goToProject(project)">
+                    <span class="section-icon">
+                        <i class="fa-regular fa-folder" :style="{ color: project.pcolor }"></i>
+                    </span>
+                    <span class="section-text">{{ project.pname }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

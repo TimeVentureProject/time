@@ -1,0 +1,65 @@
+.role_selection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 120px; /* 헤더와 내용이 겹치지 않도록 패딩 추가 */
+    box-sizing: border-box;
+}
+
+.role_selection-form {
+    background: #F9F8F8;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.role_selection-form h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.role_selection-form p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.role_selection-input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.role_selection-dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #666;
+}
+
+.role_selection-button {
+    display: flex;
+    justify-content: center;
+}
+
+.role_selection_continue-button{
+    background: #4285f4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.3s;
+}
+
+.role_selection_continue-button:hover{
+    background: #357ae8;
+}

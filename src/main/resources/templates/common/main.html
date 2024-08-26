@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>TimeVenture</title>
+    <link rel="stylesheet" th:href="@{/css/common/top.css}">
+    <link rel="stylesheet" th:href="@{/css/common/side.css}">
+    <link rel="stylesheet" th:href="@{/css/common/home.css}">
+    <link rel="stylesheet" th:href="@{/css/project/dashboard.css}">
+    <link rel="icon" th:href="@{/image/common/logo.png}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+          integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/project/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.13/index.global.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.13/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <style>
+        .gowun-dodum-regular {
+            font-family: "Gowun Dodum", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-container {
+            margin-top: 60px;
+            margin-left: 200px;
+            width: calc(100% - 200px);
+            transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div th:replace="~{/common/top :: top}"></div>
+<div th:replace="~{/common/side :: side}"></div>
+<div class="content-wrapper">
+    <div class="content-container">
+        <router-view></router-view>
+    </div>
+</div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var email = /*[[${session.member?.email}]]*/ null;
+    var name = /*[[${session.member?.name}]]*/ null;
+    /*]]>*/
+</script>
+<script th:src="@{/js/common/main.js}"></script>
+<script th:src="@{/js/common/side.js}"></script>
+<script th:src="@{/js/common/top.js}"></script>
+<!--<script th:src="@{/js/project/outline.js}"></script>-->
+</body>
+</html>

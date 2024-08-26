@@ -1,0 +1,59 @@
+.attachment-main {
+    position: absolute;
+    background: #F9F8F8;
+}
+
+.attachment-file,
+.attachment-img {
+    position: absolute;
+    width: 450px;
+    height: 70px;
+    left: 640px;
+    top: 45px;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.attachment-file-info,
+.attachment-img .content {
+    position: absolute;
+    width: 354px;
+    height: 16px;
+    left: 723px;
+}
+
+.attachment-file-info .file-name,
+.attachment-img .img-name {
+    top: 64px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: flex-end;
+    color: #2E2E30;
+}
+
+.attachment-file-info .task-name,
+.attachment-img .task-name {
+    top: 83px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: flex-end;
+    color: #565557;
+}
+
+.attachment-img .img {
+    position: absolute;
+    width: 450px;
+    height: 230px;
+    left: 150px;
+    top: 115px;
+    background: url(111.png);
+    border-radius: 0px 0px 10px 10px;
+}

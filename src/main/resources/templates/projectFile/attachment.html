@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Attachment</title>
+    <link rel="stylesheet" th:href="@{/css/project/attachment.css}">
+</head>
+<body>
+<div class="attachment-main">
+    <div th:each="file : ${files}">
+        <div th:class="${file.type == 'image'} ? 'attachment-img' : 'attachment-file'">
+            <div class="attachment-content">
+                <div class="content" th:if="${file.type == 'image'}">
+                    <div class="img" th:style="'background-image: url(' + @{${file.url}} + ')'"></div>
+                    <div class="img-name" th:text="${file.name}"></div>
+                </div>
+                <div class="content" th:if="${file.type != 'image'}">
+                    <div class="attachment-file-info">
+                        <div class="file-name" th:text="${file.name}"></div>
+                    </div>
+                </div>
+                <div class="task-name" th:text="${file.taskName + ' · ' + file.userName}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeVenture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/image/common/logo.png">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/member/login.css}">
+</head>
+<body>
+<form action="/login" method="post">
+<div th:replace="~{common/header :: header}"></div>
+<div class="login-container">
+    <div class="login-content">
+        <h2>TimeVenture에 오신 것을 환영합니다!</h2>
+        <p>시작하려면 로그인하세요</p>
+        <a id="google-login" class="google-login-button" href="/oauth2/authorization/google" style="text-decoration: none">
+            <img th:src="@{/image/project/google.png}" alt="Google Icon">
+            Google로 계속
+        </a>
+        <div class="login_or">
+            <span>또는</span>
+        </div>
+        <input type="email" placeholder="이메일 주소" id="email-input" name="username">
+        <input type="password" placeholder="비밀번호" id="password-input" name="password">
+        <input type="submit" id="continue-button" class="continue-button" value="로그인"/>
+        <p class="signup-link">
+            계정이 없으신가요? <a th:href="@{/join}">가입하기</a>
+        </p>
+    </div>
+</div>
+</form>
+</body>
+</html>

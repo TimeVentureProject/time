@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeVenture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/image/common/logo.png">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/member/loginAccountSetup.css}">
+</head>
+<body>
+<div th:replace="~{common/header :: header}"></div>
+<div class="login_signup-container">
+    <div class="login_signup-form">
+        <h2>TimeVenture 오신 것을 환영합니다!</h2>
+        <form action="/joinAccountRole" th:method="post" enctype="multipart/form-data">
+        <p><span th:text="${email}"></span> 이메일로 가입하고 있습니다.</p>
+            <input type="hidden" name="email" th:value="${email}"/>
+        <div class="login_signup_profile-picture">
+            <label for="profile-upload" id="profile-label">
+                <img id="profile-preview" src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="Profile Picture">
+            </label>
+            <input type="file" id="profile-upload" class="login_signup_profile-upload" accept="image/*" name="img">
+        </div>
+        <div class="login_signup_input-group">
+            <label for="name">회원님의 성함은 무엇인가요?</label>
+            <input type="text" id="name" placeholder="이름을 입력하세요." name="name">
+        </div>
+        <div class="login_signup_input-group">
+            <label for="name">비밀번호를 입력해주세요</label>
+            <input type="password" id="password" placeholder="비밀번호" name="pwd">
+            <label for="name">비밀번호 확인을 위해 다시 입력해주세요</label>
+            <input type="password" id="re-password" placeholder="비밀번호">
+        </div>
+        <input type="submit" class="login_signup_continue-button" onclick="LoginAccountSetup()" value="계속">
+        <p class="login_signup_login-link">이미 계정이 있나요? <a href="/login">로그인</a></p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('profile-upload').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profile-preview').src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+   const passwordInput = document.getElementById('password');
+    const rePasswordInput = document.getElementById('re-password');
+    const continueButton = document.querySelector('.login_signup_continue-button');
+    const passwordErrorMessage = document.createElement('p');
+    passwordErrorMessage.classList.add('password-error-message');
+    passwordErrorMessage.style.color = 'red';
+    passwordErrorMessage.textContent = '비밀번호가 일치하지 않습니다.';
+
+    continueButton.addEventListener('click', function(event) {
+        event.preventDefault(); // 기본 동작 막기
+
+        if (passwordInput.value !== rePasswordInput.value) {
+            if (!passwordErrorMessage.parentNode) {
+                rePasswordInput.parentNode.appendChild(passwordErrorMessage);
+            }
+            continueButton.disabled = true;
+        } else {
+            if (passwordErrorMessage.parentNode) {
+                passwordErrorMessage.parentNode.removeChild(passwordErrorMessage);
+            }
+            continueButton.disabled = false;
+            // 폼 제출 코드 추가
+            event.target.form.submit();
+        }
+    });
+
+    passwordInput.addEventListener('input', function() {
+        if (passwordInput.value === rePasswordInput.value) {
+            if (passwordErrorMessage.parentNode) {
+                passwordErrorMessage.parentNode.removeChild(passwordErrorMessage);
+            }
+            continueButton.disabled = false;
+        } else {
+            if (!passwordErrorMessage.parentNode) {
+                rePasswordInput.parentNode.appendChild(passwordErrorMessage);
+            }
+            continueButton.disabled = true;
+        }
+    });
+
+    rePasswordInput.addEventListener('input', function() {
+        if (passwordInput.value === rePasswordInput.value) {
+            if (passwordErrorMessage.parentNode) {
+                passwordErrorMessage.parentNode.removeChild(passwordErrorMessage);
+            }
+            continueButton.disabled = false;
+        } else {
+            if (!passwordErrorMessage.parentNode) {
+                rePasswordInput.parentNode.appendChild(passwordErrorMessage);
+            }
+            continueButton.disabled = true;
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<div class="home-container">
+    <!-- 상단: 요약 -->
+    <div class="home-summary">
+        <h1>홈</h1>
+        <div th:text="${#calendars.format(#calendars.createNow(), 'MM월 dd일 EEEE')}" class="home-date">2024-05-21</div>
+        <div class="greeting">안녕하세요, {{ userName }} 님</div>
+    </div>
+
+    <!-- 하단: 본문 -->
+    <div class="content-wrapper">
+        <div class="my-tasks">
+            <div class="home-title">내 작업</div>
+            <div class="profile-img"></div>
+            <div class="menu" id="view-options">
+                <div class="scheduled"><span @click="filterTasks('upcoming')" :class="{ active: currentFilter === 'upcoming' }">예정</span></div>
+                <div class="overdue"><span @click="filterTasks('overdue')" :class="{ active: currentFilter === 'overdue' }">마감일 지남</span></div>
+                <div class="completed"><span @click="filterTasks('completed')" :class="{ active: currentFilter === 'completed' }">완료됨</span></div>
+            </div>
+            <button class="create-task-btn" @click="openCreateTaskModal"><i class="fa-solid fa-plus"></i> 작업 생성</button>
+
+            <!-- 작업 생성 모달 -->
+            <div v-if="showCreateTaskModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" @click="closeCreateTaskModal">&times;</span>
+                    <h2>작업 생성</h2>
+                    <!-- 작업 생성 폼 -->
+                    <form @submit.prevent="saveNewTask">
+                        <div>
+                            <label>제목:</label>
+                            <input v-model="newTask.title" placeholder="작업 제목">
+                        </div>
+                        <div>
+                            <label>프로젝트:</label>
+                            <input @click="openProjectModal" v-model="newTask.pname" placeholder="프로젝트 선택" readonly>
+                        </div>
+                        <div>
+                            <label>마감일:</label>
+                            <input id="dueDate" v-model="newTask.dueDate" placeholder="마감일 선택" readonly>
+                        </div>
+                        <button type="submit">생성</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 프로젝트 선택 모달 -->
+            <div v-if="showProjectModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" @click="closeProjectModal">&times;</span>
+                    <h2>프로젝트 선택</h2>
+                    <ul>
+                        <li v-for="project in projects" :key="project.pid" @click="selectProject(project)">
+                            {{ project.pname }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="task-list">
+                <table>
+                    <tbody>
+                    <tr v-for="task in filteredTasks" :key="task.tid" @click="openTaskDetailModal(task)">
+                        <td>{{ task.title }}</td>
+                        <td>{{ getProjectNameById(task.pid) }}</td>
+                        <td>{{ task.dueDate }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 작업 상세 정보 모달 -->
+        <div v-if="showTaskDetailModal" class="modal task-detail-modal">
+            <div class="modal-content">
+                <span class="close" @click="closeTaskDetailModal">&times;</span>
+                <h2>작업 상세 정보</h2>
+                <div>
+                    <label>제목:</label>
+                    <input v-model="selectedTask.title">
+                </div>
+                <div>
+                    <label>내용:</label>
+                    <textarea v-model="selectedTask.content"></textarea>
+                </div>
+                <div>
+                    <label>프로젝트:</label>
+                    <input v-model="selectedTask.pname" readonly>
+                </div>
+                <div>
+                    <label>담당자:</label>
+                    <input v-model="selectedTask.mid" readonly>
+                </div>
+                <div>
+                    <label>우선순위:</label>
+                    <select v-model="selectedTask.priority">
+                        <option value="HIGH">높음</option>
+                        <option value="MEDIUM">중간</option>
+                        <option value="LOW">낮음</option>
+                    </select>
+                </div>
+                <div>
+                    <label>상태:</label>
+                    <select v-model="selectedTask.taskStatus">
+                        <option value="TODO">할 일</option>
+                        <option value="DOING">진행 중</option>
+                        <option value="DONE">완료</option>
+                        <option value="HOLD">보류</option>
+                    </select>
+                </div>
+                <div>
+                    <label>마감일:</label>
+                    <input type="date" v-model="selectedTask.dueDate">
+                </div>
+                <button @click="updateTask(selectedTask)">저장</button>
+            </div>
+        </div>
+
+        <div class="bottom-content">
+            <div class="projects">
+                <div class="home-title">소속된 프로젝트 목록</div>
+                <div class="project-list">
+                    <div id="project-list">
+                        <div v-for="project in projects" :key="project.pid" class="section-content" @click="goToProject(project)">
+                            <span class="section-icon">
+                                <i class="fa-regular fa-folder" :style="{ color: project.pcolor }"></i>
+                            </span>
+                            <span class="section-text" id="bottom-content-project-name">{{ project.pname }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--            <div class="users">-->
+<!--                <div class="home-title">사용자</div>-->
+<!--                <div class="favorite-collaborators"><i class="fa-regular fa-star"></i> 별표 표시한 협업 참여자</div>-->
+<!--                <div class="other-user">-->
+<!--                    <div class="profile-img"></div>-->
+<!--                    <div class="user-name">사용자 이름</div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/project/home.js}"></script>

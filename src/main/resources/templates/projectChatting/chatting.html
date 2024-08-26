@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채팅 페이지</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .chat-body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            max-width: 500px;
+            padding: 20px;
+        }
+        .chat-header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .chat-header img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .chat-header .custom-select {
+            position: relative;
+            width: auto;
+            margin-right: 10px;
+        }
+        .chat-header .custom-select-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            min-width: 150px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .chat-header .custom-select-trigger:hover {
+            border-color: #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        .chat-header .custom-select-trigger span {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        .chat-header .custom-select-trigger i {
+            color: #888;
+            font-size: 14px;
+        }
+        .chat-header .custom-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .chat-header .custom-options .custom-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .chat-header .custom-options .custom-option img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .chat-header .custom-options .custom-option:hover {
+            background: #f1f1f1;
+        }
+        .chat-header .custom-select.open .custom-options {
+            display: block;
+        }
+        .chat-header input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .chat-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-box-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .chat-box-title {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .chat-box-title .project-color {
+            width: 10px;
+            height: 10px;
+            background-color: #d4a1ff; /* 원하는 색상으로 변경 */
+            border-radius: 2px;
+            margin-right: 8px;
+        }
+        .chat-box-subtitle {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .chat-box-content {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        .chat-message {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .chat-message img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .chat-message-content {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-message-content .chat-message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .chat-message-content .chat-message-header .username {
+            font-weight: bold;
+        }
+        .chat-message-content .chat-message-header .timestamp {
+            font-size: 0.8em;
+            color: gray;
+        }
+        .chat-input {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-bottom: 10px;
+        }
+        .chat-input img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        .chat-input button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5a9bd5;
+            color: white;
+            cursor: pointer;
+        }
+        .chat-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .chat-footer .custom-select {
+            position: relative;
+            width: auto;
+        }
+        .chat-footer .custom-select-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: default;
+            min-width: 100px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .chat-footer .custom-select-trigger:hover {
+            border-color: #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        .chat-footer .custom-select-trigger span {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        .chat-footer .custom-select-trigger i {
+            color: #888;
+            font-size: 14px;
+        }
+        .chat-footer .custom-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .chat-footer .custom-options .custom-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .chat-footer .custom-options .custom-option img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .chat-footer .custom-options .custom-option:hover {
+            background: #f1f1f1;
+        }
+        .chat-footer .custom-select.open .custom-options {
+            display: block;
+        }
+        .chat-footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5a9bd5;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="chat-body">
+    <div class="chat-container">
+        <div class="chat-box">
+            <div class="chat-box-header">
+                <div class="chat-box-title">
+                    <div class="project-color"></div>
+                    {{ project.pname }}
+                </div>
+            </div>
+            <div class="chat-box-subtitle">
+                협업 참가자의 프로젝트 및 팀 멤버에게만 공개됩니다.
+            </div>
+            <div class="chat-box-content">
+                <div v-for="comment in comments" :key="comment.reviewId" :class="['chat-message', { 'user': comment.isUser }]">
+<!--                    <img alt="프로필 이미지" th:src="@{'/upload/' + {{ comment.mid.img }}}">-->
+                    <div class="chat-message-content">
+                        <div class="chat-message-header">
+                            <span class="username">{{ comment.mid.name }}</span>
+                            <span class="timestamp">{{ formatDate(comment.createdDate) }}</span>
+                        </div>
+                        <div>{{ comment.content }}</div>
+                        <button v-if="comment.isUser" @click="deleteComment(comment.reviewId)">삭제</button>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+<!--                <img alt="프로필 이미지" th:src="@{'/upload/' + {{img}} }">-->
+                <input type="text" v-model="newComment" placeholder="메시지에 답장하기..." @keyup.enter="addComment">
+                <button @click="addComment"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script>-->
+<!--    document.querySelectorAll('.custom-select-trigger').forEach(trigger => {-->
+<!--        trigger.addEventListener('click', function() {-->
+<!--            this.parentElement.classList.toggle('open');-->
+<!--        });-->
+<!--    });-->
+
+<!--    document.querySelectorAll(".custom-option").forEach(option => {-->
+<!--        option.addEventListener('click', function() {-->
+<!--            const select = this.closest('.custom-select');-->
+<!--            select.querySelector('.custom-select-trigger span').textContent = this.querySelector('span').textContent;-->
+<!--            select.classList.remove('open');-->
+<!--        });-->
+<!--    });-->
+
+<!--    window.addEventListener('click', function(e) {-->
+<!--        document.querySelectorAll('.custom-select').forEach(select => {-->
+<!--            if (!select.contains(e.target)) {-->
+<!--                select.classList.remove('open');-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+</body>
+</html>

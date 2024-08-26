@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/TimeVenture?serverTimezone=UTC
+    username: TimeVenture
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+  profiles:
+    include: oauth

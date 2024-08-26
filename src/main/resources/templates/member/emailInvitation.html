@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>이메일 인증</title>
+</head>
+<body>
+    <div style="background: #FFFFFF; display: flex; flex-direction: column; align-items: center; padding: 16px 0; width: 100%; box-sizing: border-box;">
+        <div style="margin: 0 0.7px 22px 0; display: inline-block; overflow-wrap: break-word; font-family: 'Inter'; font-weight: 400; font-size: 32px; color: #000000;">
+            <span th:text="${managerEmail}"></span>님의 프로젝트에 동참해주세요!
+        </div>
+        <a th:href="@{http://localhost/joinCheck(email=${email}, projectId=${projectId})}" style="text-decoration: none">
+            <div style="border-radius: 10px; background: #4573D2; position: relative; margin-bottom: 22px; display: flex; padding: 16px 0.9px 15px 0; width: 649px; box-sizing: border-box; justify-content: center;">
+                <span style="overflow-wrap: break-word; font-family: 'Inter'; font-weight: 400; font-size: 20px; color: #FFFFFF;">
+                    초대 수락
+                </span>
+            </div>
+        </a>
+        <div style="margin-bottom: 102px; display: inline-block; text-align: center; overflow-wrap: break-word; font-family: 'Inter'; font-weight: 400; font-size: 20px; color: #000000;">
+            <span th:text="${managerEmail}"></span>님의 <span th:text="${projectName}"></span>프로젝트에 동참해주세요! <br />
+            함께 멋진 프로젝트를 만들어보세요!
+        </div>
+        <div style="background: #F1F1F1; position: relative; display: flex; flex-direction: column; align-items: center; padding: 16px 56.8px 17px 55.8px; width: fit-content; box-sizing: border-box;">
+            <div style="margin-bottom: 15px; display: inline-block; text-align: center; overflow-wrap: break-word; font-family: 'Inter'; font-weight: 400; font-size: 15px; color: #000000;">
+                <span th:text="${managerEmail}"></span>의 초대로 이메일이 전송되었습니다.<br />
+                본인이 아니라면 이 이메일을 무시해 주세요.<br />
+            </div>
+            <div style="margin-left: 0.5px; display: flex; flex-direction: row; width: fit-content; box-sizing: border-box;">
+                <div style="background: url('http://localhost/image/common/logo.png') 50% / cover no-repeat; margin-right: 7px; width: 38px; height: 38px;"></div>
+                <div style="margin: 7px 0; display: inline-block; overflow-wrap: break-word; font-family: 'Inter'; font-style: italic; font-weight: 900; font-size: 20px; color: #000000;">
+                    TimeVenture
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

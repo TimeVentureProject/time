@@ -1,0 +1,190 @@
+
+
+.time-venture {
+  margin-bottom: 21px;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 28px;
+  color: #000000;
+}
+.container {
+  margin: 0 0 21px 1.6px;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 22px;
+  color: #CFCBCB;
+}
+.google {
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  flex-grow: 1;
+  text-align : center;
+  margin-right : 20px;
+  cursor: pointer;
+}
+.search-2817641 {
+  background: url('../../image/project/google.png') 50% / cover no-repeat;
+  width: 20px;
+  height: 20px;
+    margin-right: 10px; /* 오른쪽에 여백 추가 */
+
+}
+.container-1 {
+  margin-right: 3.4px;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 15px;
+  color: #6D6E6F;
+}
+.container-2 {
+  margin: 0 4px 4px 4px;
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  color: #969696;
+}
+.container-3 {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  color: #FFFFFF;
+   display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center;    /* 세로 중앙 정렬 */
+    width: 100%;
+}
+.line-3 {
+  background: #EDEAE9;
+  margin: 9px 4px 8px 0;
+  width: 167px;
+  height: 1px;
+}
+.rectangle-11 {
+  border-radius: 10px;
+  border: 1px solid #CFCBCB;
+  background: #FFFFFF;
+  width: 369px;
+  height: 37px;
+}
+.time-venture-1 {
+  margin: 11px 0;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 28px;
+  color: #000000;
+}
+.google-1 {
+  border-radius: 10px;
+  border: 1px solid #CFCBCB;
+  background: #FFFFFF;
+  position: relative;
+  margin: 0 44.2px 19px 44px;
+  display: flex;
+  flex-direction: row;
+  padding: 9px 12px 8px 12px;
+  width: 369px;
+  box-sizing: border-box;
+  align-items : center;
+}
+.email {
+  border-radius: 10px;
+  margin: 0 44.2px 33px 44px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.button {
+  border-radius: 10px;
+  background: #4573D2;
+  position: relative;
+  margin: 0 44.2px 36px 44px;
+  display: flex;
+  justify-content: center; /* 중앙 정렬 */
+    align-items: center;     /* 세로 중앙 정렬 */
+    padding: 8px 16px;           /* 여백 수정 */
+  width: 369px;
+  box-sizing: border-box;
+    cursor: pointer;
+
+}
+.logo {
+  margin: 0 220px 620px 0;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.line-4 {
+  background: #EDEAE9;
+  margin: 9px 0 8px 0;
+  width: 167px;
+  height: 1px;
+}
+.or {
+  margin: 0 44.2px 28px 44px;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.login {
+  margin-top: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin-left : 215px;
+  margin-bottom : 0;
+}
+.container-4 {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 13px;
+
+  line-height: 1.333;
+  color: #1580EB;
+}
+.container-4-sub9 {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.333;
+}
+.container-4 {
+  margin-right: 9.7px;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 13px;
+  color: #6D6E6F;
+}
+.wall-clock-8336431 {
+  background: url('../../image/common/logo.png') 50% / cover no-repeat;
+  margin-right: 14px;
+  width: 56px;
+  height: 56px;
+}
+.container-5 {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  padding: 26px 0 0 25px;
+  width: 100%; /* 부모 요소의 너비를 100%로 설정 */
+  box-sizing: border-box;
+  margin: 0 auto; /* 화면 중앙에 배치 */
+}

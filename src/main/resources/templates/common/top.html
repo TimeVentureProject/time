@@ -1,0 +1,50 @@
+<!-- Thymeleaf Top Fragment -->
+<div th:fragment="top" class="top common-position common-size common-background"
+     xmlns:th="http://www.w3.org/1999/xhtml" id="top">
+    <button class="top-menu common-position">
+        <span class="top-menu-icon common-color">
+            <i class="fa-solid fa-bars fa-xl"></i>
+        </span>
+    </button>
+    <div class="top-profile-container common-position">
+        <img class="top-profile-img" th:src="@{'/upload/' + ${session.member.img}}"/>
+    </div>
+    <div class="top-search-container common-position">
+        <div class="search-input" @click.stop>
+            <div class="search-icon common-color">
+                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+            </div>
+            <input type="text" v-model="searchWord" @input="searchTasks" @focus="showSearchResults = true" placeholder="검색" />
+        </div>
+        <div class="search-results" v-if="showSearchResults" @click.stop>
+            <div class="search-filters">
+                <select v-model="selectedProject" @change="searchTasks">
+                    <option value="">전체 프로젝트</option>
+                    <option v-for="project in projects" :key="project.pid" :value="project.pid">{{ project.pname }}</option>
+                </select>
+                <select v-model="selectedMember" @change="searchTasks">
+                    <option value="">전체 멤버</option>
+                    <option v-for="member in members" :key="member.pmemberId" :value="member.pmemberId">{{ member.memberName }}</option>
+                </select>
+                <select v-model="selectedStatus" @change="searchTasks">
+                    <option value="">전체 상태</option>
+                    <option value="TODO">할 일</option>
+                    <option value="DOING">진행 중</option>
+                    <option value="DONE">완료</option>
+                </select>
+            </div>
+            <div class="search-result-list">
+                <div v-for="task in searchResults" :key="task.tid" class="search-result-item">
+                    {{ task.title }}
+                </div>
+                <div v-if="searchResults.length === 0" class="search-result-empty">
+                    검색 결과가 없습니다.
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/createProject" class="top-button-container common-position" >
+        <span class="top-button-icon" th:style="'background-image: url(\'/image/common/top-plus.png\')'"></span>
+        <span class="top-button-text">생성</span>
+    </a>
+</div>

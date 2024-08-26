@@ -1,0 +1,110 @@
+
+.join-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-top: 120px; /* 헤더와 내용이 겹치지 않도록 패딩 추가 */
+  box-sizing: border-box;
+  background-color: #F9F8F8;
+  text-align: center;
+}
+
+.join-content {
+  background: #F9F8F8;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.join-content h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.google-join-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.google-join-button img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.or-divider {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.or-divider span {
+  background: #F9F8F8;
+  padding: 0 10px;
+  color: #666;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+#email-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-bottom: 20px;
+  background-color: #f1f1f1;
+  color: #666;
+}
+
+.join-button {
+  background: #357ae8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.join-button:hover {
+  background: #333;
+}
+
+.terms {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #777;
+}
+
+.terms a {
+  color: #4285f4;
+  text-decoration: none;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}

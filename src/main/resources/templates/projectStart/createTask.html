@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>첫 번째 프로젝트 설정</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/image/common/logo.png">
+    <link rel="stylesheet" th:href="@{/css/member/loginNewTask.css}">
+</head>
+<body>
+<form action="/makeTask" th:method="post" id="projectSetupForm">
+    <input type="hidden" name="mid" th:value="${mId}">
+    <input type="hidden" name="pid" th:value="${pId}">
+    <div class="loginNewTask_container">
+        <div class="loginNewTask_form">
+            <h2 th:text="${pName} + '에서 해야 할 몇 가지 작업은 무엇인가요?'"></h2>
+            <input class="loginNewTask_input" type="text" placeholder="작업을 입력해주세요" name="task1" required>
+            <input class="loginNewTask_input" type="text" placeholder="작업을 입력해주세요" name="task2" required>
+            <input class="loginNewTask_input" type="text" placeholder="작업을 입력해주세요" name="task3" required>
+            <button class="loginNewTask_continue-button" onclick="continueSetup()">계속</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

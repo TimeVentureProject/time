@@ -1,0 +1,162 @@
+.time-venture {
+  margin: 0 0 25px 10px;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 28px;
+  color: #000000;
+}
+.container {
+  margin: 0 0 27px 14.6px;
+  display: inline-block;
+  align-self: center;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 22px;
+  color: #CFCBCB;
+}
+.ooooonaver-com {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  margin-right: 10px;
+    margin-left : 15px;
+    margin-top : 3px;
+
+}
+.container-1 {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  text-align : center;
+  font-weight: 400;
+  font-size: 15px;
+  color: #FFFFFF;
+  margin-left : 160px;
+}
+.container-2 {
+  margin: 10px 16px 4px 16px;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  color: #969696;
+}
+.arrow-5 {
+  background: url('../../image/project/arrow-2.svg') 50% / cover no-repeat;
+  margin-bottom: 4px;
+  align-self: flex-start;
+  width: 25px;
+  height: 2px;
+}
+.login-email {
+  border-radius: 5px;
+  background: #F9F8F8;
+  position: relative;
+  margin:  30px 50px 15px 60px;
+  display: flex;
+  flex-direction: row;
+  padding: 15px 0;
+  width: 369px;
+  box-sizing: border-box;
+}
+.login-password {
+  margin: 0 44.2px 32px 44.2px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.button {
+  border-radius: 10px;
+  background: #4573D2;
+  position: relative;
+  margin: 0px 0px 20px 15px;
+  display: flex;
+  padding: 10px 0px 10px 0px;
+  width: 369px;
+  box-sizing: border-box;
+}
+.logo {
+  margin: 0 199px 591px 0;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.wall-clock-8336431 {
+  background: url('../../image/common/logo.png') 50% / cover no-repeat;
+  margin-right: 14px;
+  width: 56px;
+  height: 56px;
+}
+.time-venture-1 {
+  margin: 11px 0;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 28px;
+  color: #000000;
+}
+.container-3 {
+  margin: 0 3px;
+  align-self: flex-end;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 10px;
+  text-decoration-line: underline;
+  color: #969696;
+}
+.user-65210941 {
+  background: url('../../image/project/user.png') 50% / cover no-repeat;
+  margin-left : 85px;
+  margin-top : 3px;
+  width: 23px;
+  height: 23px;
+}
+.icons-8641 {
+  background: url('../../image/project/eyes.png') 50% / cover no-repeat;
+  width: 20px;
+  height: 20px;
+  display : flex-end;
+}
+.frame-email-login {
+ background: #FFFFFF;
+   display: flex;
+   flex-direction: row;
+   padding: 26px 0 0 25px;
+   width: 100%; /* 부모 요소의 너비를 100%로 설정 */
+   box-sizing: border-box;
+   margin: 0 auto; /* 화면 중앙에 배치 */
+}
+.login-email-1 {
+  margin-top: 225px;
+  margin-left : 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+.container {
+  border-radius: 10px;
+  border: 1px solid #CFCBCB;
+  background: #FFFFFF;
+  position: relative;
+  margin-bottom: 4px;
+  display: flex;
+  padding: 9px 9px 8px 9px;
+  width: 369px;
+  height: 37px;
+  box-sizing: border-box;
+}
+.container-7 {
+    font-family: 'Inter';
+      font-weight: 400;
+      font-size: 20px;
+      color: #CFCBCB;
+}

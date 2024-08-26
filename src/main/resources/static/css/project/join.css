@@ -1,0 +1,188 @@
+.search-2817641 {
+  background: url('../../image/project/google.png') 50% / cover no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.google {
+  margin: 12px 0;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  flex-grow : 1;
+  text-align : center;
+    cursor: pointer;
+}
+.line-3 {
+  background: #EDEAE9;
+  margin: 9px 0 8px 0;
+  width: 191px;
+  height: 1px;
+}
+.container {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 15px;
+  color: #6D6E6F;
+
+}
+.logo {
+  margin: 0 218px 614px 0;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.wall-clock-8336431 {
+  background: url('../../image/common/logo.png') 50% / cover no-repeat;
+  margin-right: 14px;
+  width: 56px;
+  height: 56px;
+}
+.time-venture {
+  margin: 11px 0;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 28px;
+  color: #000000;
+}
+.google-box {
+  border-radius: 3px;
+  border: 1px solid #A5A4A3;
+  background: #4285F4;
+  position: relative;
+  margin-bottom: 9px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 4px 0 5px 4px;
+  width: 463px;
+  box-sizing: border-box;
+}
+.email-box {
+  border-radius: 3px;
+  border: 1px solid #A5A4A3;
+  background: #FFFFFF;
+  position: relative;
+  margin-bottom: 18px;
+  padding: 16px 16px 17px 16px;
+  width: 463px;
+  box-sizing: border-box;
+}
+.join-button {
+  border-radius: 3px;
+  border: 1px solid #000000;
+  background: #000000;
+  margin-top : 20px;
+  position: relative;
+  margin-bottom: 41px;
+  display: flex;
+  padding: 15px 0.1px 18px 0;
+  width: 463px;
+  box-sizing: border-box;
+}
+.container-1 {
+  margin: 0 0 49px 0.6px;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 45px;
+  color: #000000;
+}
+.or {
+  margin-bottom: 9px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* 세로 가운데 정렬 */
+  width: 463px;
+  box-sizing: border-box;
+
+}
+.line-4 {
+  background: #EDEAE9;
+  margin: 9px 0 8px 0;
+  width: 191px;
+  height: 1px;
+}
+.asdasdasdnaver-com {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 16px;
+  color: #E0E0E0;
+}
+.container-2 {
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  flex-grow : 1;
+    text-align : center;
+      cursor: pointer;
+
+}
+.asana {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.333;
+  color: #646F79;
+}
+.asana-sub5 {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.333;
+  color: #646F79;
+}
+.asana {
+  margin: 0 2.5px 0 3px;
+  overflow-wrap: break-word;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  color: #646F79;
+}
+.join {
+  margin-top: 225px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-sizing: border-box;
+   margin-left : 195px;
+   margin-bottom : 0;
+}
+.container-3 {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  padding: 26px 0 0 25px;
+  width: 100%; /* 부모 요소의 너비를 100%로 설정 */
+  box-sizing: border-box;
+  margin: 0 auto; /* 화면 중앙에 배치 */
+}
+.container {
+  border-radius: 3px;
+  background: #FFFFFF;
+  position: relative;
+  display: inline-block;
+  padding: 12px 11px 11px 12px;
+  width: 43px;
+  height: 43px;
+  box-sizing: border-box;
+    align-items: center;
+}
+.container-6 {
+display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+  font-family: 'Inter';
+  font-size: 16px;
+  color: #6D6E6F;
+}

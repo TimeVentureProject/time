@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+    <!-- CSS 파일 -->
+
+    <link rel="stylesheet" th:href="@{/css/member/myPage.css}">
+    <link rel="stylesheet" th:href="@{/css/member/myPageMain.css}">
+    <!-- Font Awesome CSS 파일 -->
+    <!-- Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+        .main-content {
+            margin-top: 60px; /* 상단 네비게이션 바의 높이 */
+            height: calc(100vh - 60px); /* 화면 전체 높이에서 상단 네비게이션 바의 높이를 뺀 만큼 높이 설정 */
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 상단 네비게이션 바 -->
+    <div th:replace="common/top :: top"></div>
+    <!-- 사이드바 -->
+    <div th:replace="common/side :: side"></div>
+    <!-- 본문 내용 -->
+    <main class="main-content">
+        <!-- Profile Box -->
+        <div>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="mypage-profilebox-container">
+                    <div class="mypage-profilebox">
+                        <label for="reviewImg1" class="custom-file-upload">
+                            <div class="my-page-figure-circle" id="profileImageDiv">
+                                <img th:src="@{${session.member.img}}" id="profileImage">
+                                <input type="file" id="reviewImg1" name="img" onchange="uploadImage(this)" class="form-control-file" style="display:none;">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="nickname-container">
+            <h3 id="nickname" th:text="${session.member.name}">User's Nickname</h3>
+            <button id="editButton" style="font-size: small;" onclick="editNickname()">✏️</button>
+            <!-- 실제 닉네임 수정을 위한 form은 JavaScript로 처리 -->
+            <form id="nicknameForm" style="display:none;">
+                <input type="text" id="newNicknameInput">
+                <button type="button" id="submitButton" onclick="submitNickname()">변경</button>
+            </form>
+        </div>
+
+        <!-- My Work Box -->
+        <div class="mypage-myworkbox-container">
+            <div class="mypage-myworkbox-header">
+                <h2>내 작업</h2>
+            </div>
+            <div class="mypage-myworkbox-content">
+                <div class="mypage-myworkbox-item">
+                    <span class="mypage-myworkbox-check"><i class="fas fa-check-circle"></i></span>
+                    <span class="mypage-myworkbox-name">작업1</span>
+                    <span class="mypage-myworkbox-project">Time Venture</span>
+                    <span class="mypage-myworkbox-date">어제</span>
+                </div>
+                <div class="mypage-myworkbox-item">
+                    <span class="mypage-myworkbox-check"><i class="fas fa-check-circle"></i></span>
+                    <span class="mypage-myworkbox-name">작업2</span>
+                    <span class="mypage-myworkbox-project">Time Venture</span>
+                    <span class="mypage-myworkbox-date">오늘</span>
+                </div>
+                <div class="mypage-myworkbox-item">
+                    <span class="mypage-myworkbox-check"><i class="fas fa-check-circle"></i></span>
+                    <span class="mypage-myworkbox-name">작업3</span>
+                    <span class="mypage-myworkbox-project">Time Venture</span>
+                    <span class="mypage-myworkbox-date">내일</span>
+                </div>
+                <div class="mypage-myworkbox-item">
+                    <span class="mypage-myworkbox-check"><i class="fas fa-check-circle"></i></span>
+                    <span class="mypage-myworkbox-name">API 설정</span>
+                    <span class="mypage-myworkbox-project">Time Venture</span>
+                    <span class="mypage-myworkbox-date">내일</span>
+                </div>
+                <div class="mypage-myworkbox-item">
+                    <span class="mypage-myworkbox-check"><i class="fas fa-check-circle"></i></span>
+                    <span class="mypage-myworkbox-name">다음주엔 뭐할까~</span>
+                    <span class="mypage-myworkbox-project">Time Venture</span>
+                    <span class="mypage-myworkbox-date">내일</span>
+                </div>
+                <!-- 추가 작업 항목 -->
+                <div class="mypage-myworkbox-item">
+                    <span class="mypage-myworkbox-check"><i class="fas fa-check-circle"></i></span>
+                    <span class="mypage-myworkbox-name">추가 작업1</span>
+                    <span class="mypage-myworkbox-project">Time Venture</span>
+                    <span class="mypage-myworkbox-date">다음주</span>
+                </div>
+                <div class="mypage-myworkbox-item">
+                    <span class="mypage-myworkbox-check"><i class="fas fa-check-circle"></i></span>
+                    <span class="mypage-myworkbox-name">추가 작업2</span>
+                    <span class="mypage-myworkbox-project">Time Venture</span>
+                    <span class="mypage-myworkbox-date">다음주</span>
+                </div>
+            </div>
+        </div>
+        <!-- Recent Projects Box -->
+
+    </main>
+    <script src="./js/common/myPage/js"></script>
+</body>
+</html>

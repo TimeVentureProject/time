@@ -1,0 +1,114 @@
+.login_signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    padding-top: 120px; /* 헤더와 내용이 겹치지 않도록 패딩 추가 */
+    box-sizing: border-box;
+    background-color: #F9F8F8;
+    text-align: center;
+}
+
+.login_signup-form {
+    background: #F9F8F8;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.login_signup-form h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.login_signup_inputForm {
+   width: 100%;
+    padding: 15px;
+    text-align:center;
+    margin-bottom: 20px;
+    border: 1px solid #F9F8F8;
+    border-radius: 10px;
+    background-color: #F9F8F8;
+    color: #black;
+    cursor: not-allowed;
+    box-sizing: border-box; /* 이 속성으로 너비를 정확하게 맞춥니다 */
+ }
+
+.login_signup_profile-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.login_signup_profile-picture img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+}
+
+.login_signup_profile-upload {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.login_signup_input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login_signup_input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.login_signup_input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login_signup_continue-button {
+    background: #4285f4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.3s;
+}
+
+.login_signup_continue-button:hover {
+    background: #357ae8;
+}
+
+.login_signup_login-link {
+    font-size: 12px;
+    color: #777;
+    margin-top: 20px;
+}
+
+.login_signup_login-link a {
+    color: #4285f4;
+    text-decoration: none;
+}
+
+.login_signup_login-link a:hover {
+    text-decoration: underline;
+}

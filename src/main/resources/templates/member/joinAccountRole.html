@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeVenture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/image/common/logo.png">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/member/loginAccountRole.css}">
+</head>
+<body>
+<form action="/joinFirstProj" method="post">
+<div th:replace="~{common/header :: header}"></div>
+<div class="role_selection-container">
+    <input type="hidden" name="email" th:value="${email}"/>
+    <div class="role_selection-form">
+        <h2>회원님의 주된 역할은 무엇인가요?</h2>
+        <p>회원님께서 제공해 주신 정보를 기반으로 TimeVenture를 맞춤화하여 <br/> 사용하실 수 있습니다. 또한 회원님의 팀에 딱 맞는 TimeVenture의 제품을 <br/>찾을 수 있도록 연락을 드릴 수 있습니다.</p>
+        <div class="role_selection-input-group">
+            <select id="role" class="role_selection-dropdown" name="auth">
+                <option value="">하나를 선택하세요</option>
+                <option value="MANAGER">팀장</option>
+                <option value="MEMBER">팀원</option>
+            </select>
+        </div>
+        <div class="role_selection-button">
+            <input type="submit" class="role_selection_continue-button" value="계속"/>
+        </div>
+    </div>
+</div>
+</form>
+</body>
+</html>

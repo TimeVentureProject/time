@@ -1,0 +1,281 @@
+.projectList_container {
+    background-color: #FFFFFF;
+}
+
+.projectList_menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #FFFFFF;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.projectList_menu span {
+    flex: 1;
+    text-align: left; /* 가운데 정렬로 변경 */
+}
+
+.projectList_task_header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+}
+
+.projectList_task_header button {
+    background-color: #FFFFFF;
+    border: none;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.projectList_task_header button:hover {
+    background-color: #F7F4F4;
+}
+
+.projectList_task_section {
+    margin-top: 20px;
+}
+
+.projectList_task_section h4 {
+    margin: 0;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.projectList_task_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #ccc;
+}
+
+.projectList_task_item span {
+    flex: 1;
+    text-align: left;
+}
+
+.projectList_task_name {
+    flex: 2;
+    text-align: center; /* 가운데 정렬로 변경 */
+}
+
+.projectList_task_items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+
+.task-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* 전체 너비 사용 */
+}
+
+.projectList_task_name {
+    flex: 2; /* 작업 이름 필드를 넓게 설정 */
+    margin: 0 5px;
+    padding: 5px;
+    border: none; /* 보더 제거 */
+    box-shadow: none; /* 그림자 제거 */
+}
+
+.projectList_task_item input,
+.projectList_task_item select {
+    flex: 1;
+    margin: 0 5px;
+    padding: 5px;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+.projectList_status_priority {
+    flex: none;
+    width: 80px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.projectList_status_priority[data-priority="HIGH"] {
+    background-color: #e67e22;
+    color: white;
+}
+
+.projectList_status_priority[data-priority="MEDIUM"] {
+    background-color: #27ae60;
+    color: white;
+}
+
+.projectList_status_priority[data-priority="LOW"] {
+    background-color: #3498db;
+    color: white;
+}
+
+.avatar, .calendar {
+    margin-right: 10px;
+}
+
+.calendar {
+    font-size: 17px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #FFFFFF;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content input {
+    width: 94%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal-content select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 8px;
+    background-color: #FFFFFF;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.modal-content button:hover {
+    background-color: #F2F2F2;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.detail-pane {
+    position: fixed;
+    top: 60px;
+    right: -450px;
+    width: 450px;
+    height: calc(100% - 60px);
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: right 0.3s ease;
+}
+
+.detail-pane.open {
+    right: 0;
+}
+
+.detail-content {
+    background-color: #f7f7f7;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.detail-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #d0d0d0;
+    padding-bottom: 10px;
+}
+
+.detail-content .detail-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.detail-content .detail-field label {
+    width: 100px;
+    margin-right: 10px;
+    text-align: left;
+    font-weight: bold;
+    color: #444;
+}
+
+.detail-content .detail-field select,
+.detail-content .detail-field input[type="date"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    flex-grow: 1;
+}
+
+.detail-content .detail-field div[contenteditable] {
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background-color: #fff;
+    min-height: 50px;
+    flex-grow: 1;
+}
+
+.detail-content textarea {
+    resize: none;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background-color: #fff;
+    min-height: 50px;
+    flex-grow: 1;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>kanbanBoard</title>
+    <link rel="stylesheet" href="/css/project/kanbanBoardList.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+          integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');</style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app" data-app="kanbanBoard">
+    <div class="sort-container">
+        <label for="sort">Sort by:</label>
+        <select id="sort" v-model="sortKey">
+            <option value="title">제목</option>
+            <option value="priority">우선순위</option>
+            <option value="taskStatus">상태</option>
+        </select>
+    </div>
+
+    <div class="kanban_board">
+        <div class="kanban_column" v-for="column in columns" :key="column.id" :id="column.id">
+            <h3>{{ column.title }}</h3>
+            <div class="kanban_task_list" @drop="onDrop($event, column.id)" @dragover.prevent>
+                <div v-for="task in getTasksByStatus(column.id)" :key="task.tid" :id="task.tid" :draggable="true" @dragstart="onDragStart($event, task)" @click="openTaskDetails(task)" class="kanban_task">
+                    {{ task.title }}
+                </div>
+            </div>
+            <button @click="openCreateForm(column.id)"><i class="fa-solid fa-plus"></i></button>
+            <form v-if="showCreateForm && createFormStatus === column.id" @submit.prevent="createTask" class="kanban_task">
+                <input type="text" v-model="newTask.title" placeholder="제목" required>
+                <input type="text" v-model="newTask.pmember" placeholder="담당자">
+                <input type="date" v-model="newTask.dueDate">
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <div v-if="showTaskDetails" class="task-details" @click.self="closeTaskDetails">
+        <div class="task-details-content">
+            <span class="close" @click="closeTaskDetails">&times;</span>
+            <div v-if="!editMode">
+                <h3>제목: {{ selectedTask.title }}</h3>
+                <p>내용: {{ selectedTask.content }}</p>
+                <p>우선순위: {{ selectedTask.priority }}</p>
+                <p>담당자: {{ getAssigneeName(selectedTask.pmember) }}</p>
+                <p>마감일: {{ formatDate(selectedTask.dueDate) }}</p>
+                <p>상태: {{ selectedTask.taskStatus }}</p>
+                <button @click="editMode = true">수정</button>
+            </div>
+            <div v-else>
+                <div>
+                    <label>제목:</label>
+                    <input type="text" v-model="selectedTask.title" @keyup.enter="updateTask" @blur="updateTaskOrDelete" class="editable-input">
+                </div>
+                <div>
+                    <label>내용:</label>
+                    <textarea v-model="selectedTask.content" @keyup.enter="updateTask" @blur="updateTask" class="editable-input"></textarea>
+                </div>
+                <div>
+                    <label>우선순위:</label>
+                    <select v-model="selectedTask.priority" class="editable-input">
+                        <option value="LOW">Low</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="HIGH">High</option>
+                    </select>
+                </div>
+                <div>
+                    <label>담당자:</label>
+                    <select v-model="selectedTask.pmember" class="editable-input">
+                        <option value="">담당자 선택</option>
+                        <option v-for="pmember in projectMembers" :value="pmember">{{ pmember.memberName }}</option>
+                    </select>
+                </div>
+                <div>
+                    <label>마감일:</label>
+                    <input type="date" :value="formatDate(selectedTask.dueDate)" @input="updateDueDate" class="editable-input">
+                </div>
+                <button @click="updateTask">저장</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/project/kanbanBoardList.js}"></script>
+</body>
+</html>
