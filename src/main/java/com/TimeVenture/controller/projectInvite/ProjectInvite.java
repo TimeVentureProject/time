@@ -22,9 +22,6 @@ public class ProjectInvite {
 
     @PostMapping
     public ResponseEntity<Void> sendInvitation(@RequestBody ProjectInviteDto projectInviteDto) throws MessagingException {
-        System.out.println(projectInviteDto.getEmail());
-        System.out.println(projectInviteDto.getProjectId());
-        System.out.println(projectInviteDto.getProjectName());
         emailService.sendProjectInviteEmail(projectInviteDto);
         return new ResponseEntity<>(HttpStatus.OK);
     }

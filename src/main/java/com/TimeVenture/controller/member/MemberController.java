@@ -40,7 +40,6 @@ public class MemberController {
             return ResponseEntity.ok().body(updatedMember);
         } catch (Exception e) {
             // 로그 추가
-            System.err.println("닉네임 변경 중 오류 발생: " + e.getMessage());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "닉네임 변경 실패");
         }
     }

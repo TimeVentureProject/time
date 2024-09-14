@@ -49,7 +49,6 @@ public class JoinServiceImpl implements JoinService {
         if(memberRepository.existsByEmail(joinRequestDto.getEmail())) {
             throw new DuplicateEmailException("이미 가입된 이메일입니다.");
         }
-        System.out.println("회원가입 메서드 접근");
         // 새로운 사용자 객체 생성
         Member member = Member.builder()
                 .email(joinRequestDto.getEmail())
@@ -60,7 +59,6 @@ public class JoinServiceImpl implements JoinService {
                 .role(Role.USER).pwd(passwordEncoder.encode(joinRequestDto.getPwd())).build();
 
         // 사용자 저장소에 사용자 저장
-        System.out.println("회원가입 완료");
         return memberRepository.save(member);
     }
 
@@ -88,7 +86,6 @@ public class JoinServiceImpl implements JoinService {
             img.transferTo(dest);
         } catch (IOException e) {
             e.printStackTrace();
-            // 예외 처리 (필요시 사용자에게 오류 메시지 전달)
         }
         return fileName;
     }

@@ -40,7 +40,6 @@ public class EmailServiceImpl implements EmailService {
         Context context = new Context();
         context.setVariable("token", token);
         context.setVariable("email", email);
-        System.out.println(token);
         return templateEngine.process("member/emailAuthentication", context);
     }
 

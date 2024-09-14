@@ -29,21 +29,17 @@ public class SecurityConfig {
     private final MemberDetailsService memberDetailsService;
 
     @Bean
-    public WebSecurityCustomizer configure() {
-        return (web) -> web.ignoring()
-                .requestMatchers("/css/**", "/image/**", "/js/**");
-    }
-
-    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             //csrf 비활성화
-            .csrf(AbstractHttpConfigurer::disable)
+            .csrf(csrf -> csrf.disable())
             //X-Frame-Options 비활성화 (html frame, iframe태그의 렌더링 금지를 비활성화)
             .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()))
                 .authorizeHttpRequests(
                         // 모든 계정이 접속 가능하도록 설정
-                        request -> request.requestMatchers("/", "/main", "/join", "/*", "/confirmEmail", "/verify"
+                        request -> request
+                                .requestMatchers("/css/**", "/image/**", "/js/**").permitAll()
+                                .requestMatchers("/", "/main", "/join", "/confirmEmail", "/verify"
                                         , "/joinFirstProj", "/joinAccountRole", "/joinNewTask", "/sendInvitationEmail"
                                         , "/joinFinish", "/joinCheck", "/inviteJoinFinish", "/joinGoogleAccountSetup"
                                         ,"/oauth2/authorization/google", "/login/oauth2/**", "/updateAccount", "/login/oauth2/code/google").permitAll()
@@ -52,8 +48,7 @@ public class SecurityConfig {
                                 // user 접근 권한 설정
                                 .requestMatchers("/user/**").hasAnyAuthority(Role.USER.name())
                                 // 그 외 모든 요청은 인증이 필요함
-                                .anyRequest()
-                                .authenticated())
+                                .anyRequest().authenticated())
             .formLogin(form -> form
                     .loginPage("/login")
                     .successHandler(emailAuthenticationSuccessHandler)

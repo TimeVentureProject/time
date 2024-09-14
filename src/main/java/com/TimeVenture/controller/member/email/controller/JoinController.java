@@ -93,15 +93,12 @@ public class JoinController {
                               ,Model model) {
         //프로젝트 생성
         Project project = projectService.save(addProjectRequestDto);
-        System.out.println(addProjectMemberRequestDto.toString());
         //프로젝스 아이디 프로젝트 멤버에 세팅
         addProjectMemberRequestDto.setProjectId(project.getPid());
-        System.out.println(addProjectMemberRequestDto.getProjectId());
         //프로젝트 멤버 생성
         ProjectMember projectMember = projectMemberService.addProjectMember(addProjectMemberRequestDto);
         model.addAttribute("pid", project.getPid());
         model.addAttribute("mid", projectMember.getMember().getEmail());
-        System.out.println(projectMember.getMember().getEmail());
         model.addAttribute("pmember",projectMember.getProjectMemberId());
         model.addAttribute("pName",project.getPname());
         return "member/joinNewTask";
@@ -118,7 +115,6 @@ public class JoinController {
         model.addAttribute("email", createTaskRequestDto.getMid());
         model.addAttribute("projectId", createTaskRequestDto.getPid());
         model.addAttribute("projectName", projectName);
-        System.out.println(projectName);
         return "member/sendInvitationEmail";
     }
 
@@ -131,16 +127,5 @@ public class JoinController {
         emailService.sendInviteEmail(inviteEmailDTO);
         return "member/joinFinish";
     }
-
-//    //에러 페이지 컨트롤러
-//    @GetMapping("/error")
-//    public String errorPage() {
-//        return "member/error";
-//    }
-//
-//    @GetMapping("/mypage")
-//    public String mypage() {
-//        return "member/mypage";
-//    }
 
 }

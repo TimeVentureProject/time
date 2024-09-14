@@ -30,11 +30,9 @@ public class invitationController {
             joinService.existMemberUpdate(email,
                     Integer.parseInt(projectId));
             // 로그인 페이지로 리다이렉트
-            System.out.println("유저가 존재합니다.");
             return "redirect:/login";
         }
         // 회원이 아닐 경우 email과 projectId를 회원가입 페이지로 전달
-        System.out.println("유저가 존재하지않습니다.");
         model.addAttribute("email", email);
         model.addAttribute("projectId", projectId);
         return "member/invitationAccountSetup";

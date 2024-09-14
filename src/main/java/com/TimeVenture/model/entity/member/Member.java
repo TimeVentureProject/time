@@ -20,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "Member")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
-public class Member implements UserDetails {
+public class Member {
 
     @Id
     @Column(name = "m_id")
@@ -65,45 +65,6 @@ public class Member implements UserDetails {
         this.loginType = loginType;
         this.role = role != null ? role : Role.USER; // 기본 역할을 USER로 설정
     }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
-    }
-
-    @Override
-    public String getPassword() {
-        return pwd;
-    }
-
-    //사용할 아이디
-    @Override
-    public String getUsername() {
-        return email;
-    }
-
-    //계정의 유효성
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    //계정의 락 여부
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
 
     public Member update(String name, String img) {
         this.name = name;

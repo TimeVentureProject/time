@@ -7,7 +7,7 @@ import lombok.Data;
 import java.sql.Timestamp;
 
 @Data
-public class FileDto {
+public class    FileDto {
     private int fileId;
     private Task tid;
     private Member mid;

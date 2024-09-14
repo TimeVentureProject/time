@@ -24,19 +24,12 @@ import java.util.Optional;
 public class EmailAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
     private final MemberRepository memberRepository;
-    private final ProjectMemberRepository projectMemberRepository;
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
 
         MemberDetails memberDetails = (MemberDetails)authentication.getPrincipal();
-
         Optional<Member> member = memberRepository.findByEmail(memberDetails.getUsername());
-
-        //Optional<ProjectMember> projectMember = projectMemberRepository.findByMember_Email(member.get().getEmail());
-
         SessionDTO sessionDTO = new SessionDTO(member.get());
 
         HttpSession session = request.getSession();

@@ -22,9 +22,8 @@ public class MemberDetailsService implements UserDetailsService {
         
         //email을 통해서 Member Entity를 가져옴
        Member member  =  memberRepository.findByEmail(username).get();
-       log.info("************************ 로그인 사용자 : " + member);
 
-        MemberDetails memberDetails = new MemberDetails(member);
+       MemberDetails memberDetails = new MemberDetails(member);
 
        return  memberDetails;
     }
