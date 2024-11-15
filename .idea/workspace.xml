@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bc3a2f0-8f6a-4750-8599-d174c0ff0a8e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/config/member/auth/EmailAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/config/member/auth/EmailAuthenticationSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/controller/member/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/controller/member/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/controller/member/email/controller/JoinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/controller/member/email/controller/JoinController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/controller/member/email/controller/invitationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/controller/member/email/controller/invitationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/controller/projectInvite/ProjectInvite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/controller/projectInvite/ProjectInvite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/model/dto/file/FileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/model/dto/file/FileDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/model/entity/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/model/entity/member/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/service/member/email/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/service/member/email/impl/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/service/member/email/impl/JoinServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/service/member/email/impl/JoinServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/service/member/email/impl/MemberDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/service/member/email/impl/MemberDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TimeVenture/service/member/email/impl/TokenServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TimeVenture/service/member/email/impl/TokenServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member/emailAuthentication.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member/emailAuthentication.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

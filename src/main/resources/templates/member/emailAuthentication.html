@@ -1,39 +1,88 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>이메일 인증</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TimeVenture 이메일 인증</title>
 </head>
-<body>
-    <div style="background: #FFFFFF; display: flex; flex-direction: column; align-items: center; padding: 16px 0; width: 100%; box-sizing: border-box;">
-        <div style="margin: 0 0.7px 22px 0; display: inline-block; overflow-wrap: break-word; font-family: 'Inter'; font-weight: 400; font-size: 32px; color: #000000;">
-            가입까지 앞으로 한 걸음!
-        </div>
-            <a th:href="@{http://localhost/verify(email=${email}, token=${token})}" style="text-decoration: none">
-            <div style="border-radius: 10px; background: #4573D2; position: relative; margin-bottom: 22px; display: flex; padding: 16px 0.9px 15px 0; width: 649px; box-sizing: border-box; justify-content: center;">
-                <span style="overflow-wrap: break-word; font-family: 'Inter'; font-weight: 400; font-size: 20px; color: #FFFFFF;">
-                    이메일 주소 확인
-                </span>
-            </div>
-            </a>
-        <div style="margin-bottom: 102px; display: inline-block; text-align: center; overflow-wrap: break-word; font-family: 'Inter'; font-weight: 400; font-size: 20px; color: #000000;">
-            TimeVenture에 가입해 주셔서 감사합니다! 위 버튼을 클릭하여 <br />
-            이메일을 확인해 주시면 시작하도록 도와드리겠습니다.<br />
-            3분 이내에 클릭해주세요!
-        </div>
-        <div style="background: #F1F1F1; position: relative; display: flex; flex-direction: column; align-items: center; padding: 16px 56.8px 17px 55.8px; width: fit-content; box-sizing: border-box;">
-            <div style="margin-bottom: 15px; display: inline-block; text-align: center; overflow-wrap: break-word; font-family: 'Inter'; font-weight: 400; font-size: 15px; color: #000000;">
-                회원님이 이 이메일 주소로 TimeVenture 계정에 가입했기 때문에 이메일이 전송되었습니다.<br />
-                실수로 가입했다면 이 이메일을 무시해 주세요.<br />
-                계정이 아직 생성되지 않았습니다.
-            </div>
-            <div style="margin-left: 0.5px; display: flex; flex-direction: row; width: fit-content; box-sizing: border-box;">
-                <div style="background: url('http://localhost/image/common/logo.png') 50% / cover no-repeat; margin-right: 7px; width: 38px; height: 38px;"></div>
-                <div style="margin: 7px 0; display: inline-block; overflow-wrap: break-word; font-family: 'Inter'; font-style: italic; font-weight: 900; font-size: 20px; color: #000000;">
-                    TimeVenture
-                </div>
-            </div>
-        </div>
-    </div>
+<body style="margin: 0; padding: 0;">
+<!-- 메인 테이블 -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FFFFFF;">
+    <tr>
+        <td align="center" style="padding: 20px 0;">
+            <!-- 콘텐츠 테이블 -->
+            <table border="0" cellpadding="0" cellspacing="0" width="600" style="background-color: #FFFFFF;">
+                <!-- 제목 -->
+                <tr>
+                    <td align="center" style="padding: 40px 0 30px 0;">
+                        <span style="font-family: Arial, sans-serif; font-size: 32px; color: #000000;">
+                            가입까지 앞으로 한 걸음!
+                        </span>
+                    </td>
+                </tr>
+
+                <!-- 인증 버튼 -->
+                <tr>
+                    <td align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #4573D2; border-radius: 10px;">
+                            <tr>
+                                <td align="center" style="padding: 15px 30px;">
+                                    <a href="http://localhost/verify?email=[[${email}]]&token=[[${token}]]"
+                                       style="color: #FFFFFF; font-family: Arial, sans-serif; font-size: 20px; text-decoration: none; display: block;">
+                                        이메일 주소 확인
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- 안내 메시지 -->
+                <tr>
+                    <td align="center" style="padding: 40px 0;">
+                        <p style="font-family: Arial, sans-serif; font-size: 20px; line-height: 1.8; color: #000000; margin: 0; text-align: center;">
+                            TimeVenture에 가입해 주셔서 감사합니다!<br/>
+                            위 버튼을 클릭하여 이메일을 확인해 주시면<br/>
+                            시작하도록 도와드리겠습니다.<br/>
+                            3분 이내에 클릭해주세요!
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- 회색 박스 -->
+                <tr>
+                    <td style="padding: 0;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #F1F1F1;">
+                            <tr>
+                                <td align="center" style="padding: 30px 20px;">
+                                    <p style="font-family: Arial, sans-serif; font-size: 15px; line-height: 1.8; color: #000000; margin: 0; text-align: center;">
+                                        회원님이 이 이메일 주소로 TimeVenture 계정에 가입했기 때문에<br/>
+                                        이메일이 전송되었습니다.<br/>
+                                        실수로 가입했다면 이 이메일을 무시해 주세요.<br/>
+                                        계정이 아직 생성되지 않았습니다.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="padding: 0 20px 30px 20px;">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="padding-right: 10px;">
+                                                <img src="cid:logoImage" alt="TimeVenture Logo" width="38" height="38" style="display: block; border: 0;"/>
+                                            </td>
+                                            <td style="font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; font-style: italic; color: #000000; vertical-align: middle;">
+                                                TimeVenture
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

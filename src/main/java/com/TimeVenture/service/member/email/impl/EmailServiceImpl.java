@@ -7,10 +7,17 @@ import com.TimeVenture.model.entity.project.Project;
 import com.TimeVenture.repository.member.MemberRepository;
 import com.TimeVenture.repository.project.ProjectRepository;
 import com.TimeVenture.service.member.email.EmailService;
+import jakarta.activation.DataHandler;
 import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeBodyPart;
 import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
+import jakarta.mail.util.ByteArrayDataSource;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
@@ -28,10 +35,39 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendCheckEmail(String email, String token) throws MessagingException {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
-        mimeMessage.addRecipients(MimeMessage.RecipientType.TO, email);
-        mimeMessage.setSubject("TimeVenture 가입을 완료해주세요.");
-        mimeMessage.setText(setContext(token, email),"utf-8", "html");
-        mailSender.send(mimeMessage);
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+
+        try {
+            helper.setTo(email);
+            helper.setSubject("TimeVenture 가입을 완료해주세요.");
+
+            // 리소스 직접 로드
+            Resource resource = new ClassPathResource("static/image/common/logo.png");
+
+            // MimeBodyPart를 사용하여 이미지 첨부
+            MimeBodyPart imageBodyPart = new MimeBodyPart();
+            ByteArrayDataSource ds = new ByteArrayDataSource(resource.getInputStream(), "image/png");
+            imageBodyPart.setDataHandler(new DataHandler(ds));
+            imageBodyPart.setHeader("Content-ID", "<logoImage>");
+
+            // Multipart 메시지 생성
+            MimeMultipart multipart = new MimeMultipart("related");
+
+            // HTML 콘텐츠 추가
+            MimeBodyPart htmlPart = new MimeBodyPart();
+            String htmlContent = setContext(token, email);
+            htmlPart.setContent(htmlContent, "text/html; charset=utf-8");
+
+            multipart.addBodyPart(htmlPart);
+            multipart.addBodyPart(imageBodyPart);
+
+            mimeMessage.setContent(multipart);
+
+            mailSender.send(mimeMessage);
+
+        } catch (Exception e) {
+            throw new MessagingException("Failed to send email: " + e.getMessage());
+        }
     }
 
     //email에 담겨질 데이터와 이메일에 보여줄 form데이터
